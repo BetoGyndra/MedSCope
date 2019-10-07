@@ -17,7 +17,7 @@ class Login extends CI_Controller{
 		 
 	public function autenticar(){
 	   if($this->input->post('email')&&$this->input->post('password')){
-		$curl_request = curl_init('http://localhost/tickets2_services/index.php/loginuser/api/login');
+		$curl_request = curl_init('http://localhost/MSC_services/index.php/loginuser/api/login');
 		$data = array(
 			"email"=>$this->input->post('email'),
 			"password"=>$this->input->post('password')
@@ -43,7 +43,7 @@ class Login extends CI_Controller{
 		if($response->status=="success"){
 			echo var_dump($response);
 						
-			switch($response->data->tipo){
+			switch($response->data->typeUser){
 				
 				case 'Admin':
 				$this->session->set_userdata('my_session',$response->data);										

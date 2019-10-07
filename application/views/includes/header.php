@@ -54,7 +54,7 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega" role="navigation">
+    <nav class="site-navbar navbar  navbar-fixed-top navbar-mega" role="navigation">
     
       <div class="navbar-header">
         <button type="button" class="navbar-toggler hamburger hamburger-close navbar-toggler-left hided"
@@ -79,7 +79,7 @@
     
       <div class="navbar-container container-fluid">
         <!-- Navbar Collapse -->
-        <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+        <div class="collapse navbar-collapse  navbar-collapse-toolbar" id="site-navbar-collapse">
           <!-- Navbar Toolbar -->
           <ul class="nav navbar-toolbar">
             <li class="nav-item hidden-float" id="toggleMenubar">
@@ -286,7 +286,7 @@
                 <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
                 <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
                 <div class="dropdown-divider" role="presentation"></div>
-                <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+                <a class="dropdown-item" href="<?=base_url('index.php/Login/logout');?>" role="menuitem"><i class="icon wb-power"  aria-hidden="true"></i> Logout</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -395,81 +395,42 @@
     </nav>    <div class="site-menubar">
       <ul class="site-menu">
         <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
+          <a href="javascript:;">
                   <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                  <span class="site-menu-title">Dashboard</span>
+                  <span class="site-menu-title">Altas</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
             <li class="site-menu-item">
-              <a class="animsition-link" href="../index.html">
-                <span class="site-menu-title">Dashboard v1</span>
+              <a class="animsition-link" href="<?=base_url('index.php/alta');?>">
+                <span class="site-menu-title">Medicos</span>
               </a>
             </li>
             <li class="site-menu-item">
               <a class="animsition-link" href="../dashboard/v2.html">
-                <span class="site-menu-title">Dashboard v2</span>
+                <span class="site-menu-title">Recepcionista</span>
               </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../dashboard/ecommerce.html">
-                <span class="site-menu-title">Ecommerce</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../dashboard/analytics.html">
-                <span class="site-menu-title">Analytics</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../dashboard/team.html">
-                <span class="site-menu-title">Team</span>
-              </a>
-            </li>
+            </li>           
           </ul>
         </li>                                          
         <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-library" aria-hidden="true"></i>
-                  <span class="site-menu-title">Forms</span>
+                  <span class="site-menu-title">Calendario</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
             <li class="site-menu-item">
               <a class="animsition-link" href="../forms/general.html">
-                <span class="site-menu-title">General Elements</span>
+                <span class="site-menu-title">Horarios</span>
               </a>
             </li>
             <li class="site-menu-item">
               <a class="animsition-link" href="../forms/material.html">
-                <span class="site-menu-title">Material Elements</span>
+                <span class="site-menu-title">Fechas no Atencion</span>
               </a>
             </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/advanced.html">
-                <span class="site-menu-title">Advanced Elements</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/layouts.html">
-                <span class="site-menu-title">Form Layouts</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/wizard.html">
-                <span class="site-menu-title">Form Wizard</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/validation.html">
-                <span class="site-menu-title">Form Validation</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/masks.html">
-                <span class="site-menu-title">Form Masks</span>
-              </a>
-            </li>
+            
             <li class="site-menu-item has-sub">
               <a href="javascript:void(0)">
                 <span class="site-menu-title">Editors</span>
@@ -492,66 +453,21 @@
                   </a>
                 </li>
               </ul>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/image-cropping.html">
-                <span class="site-menu-title">Image Cropping</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/file-uploads.html">
-                <span class="site-menu-title">File Uploads</span>
-              </a>
-            </li>
+            </li>            
           </ul>
         </li>
         <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-table" aria-hidden="true"></i>
-                  <span class="site-menu-title">Tables</span>
+                  <span class="site-menu-title">Gestiones</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
             <li class="site-menu-item">
               <a class="animsition-link" href="../tables/basic.html">
-                <span class="site-menu-title">Basic Tables</span>
+                <span class="site-menu-title">Especialidades</span>
               </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/bootstrap.html">
-                <span class="site-menu-title">Bootstrap Tables</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/floatthead.html">
-                <span class="site-menu-title">floatThead</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/responsive.html">
-                <span class="site-menu-title">Responsive Tables</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/editable.html">
-                <span class="site-menu-title">Editable Tables</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/jsgrid.html">
-                <span class="site-menu-title">jsGrid</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/footable.html">
-                <span class="site-menu-title">FooTable</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/datatable.html">
-                <span class="site-menu-title">DataTables</span>
-              </a>
-            </li>
+            </li>            
             <li class="site-menu-item">
               <a class="animsition-link" href="../tables/jqtabledit.html">
                 <span class="site-menu-title">Jquery Tabledit</span>
@@ -573,7 +489,7 @@
         <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-pie-chart" aria-hidden="true"></i>
-                  <span class="site-menu-title">Chart</span>
+                  <span class="site-menu-title">Reportes</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
@@ -728,6 +644,12 @@
       <div>
         <div>
           <ul>
+          <li>
+              <a href="<?=base_url('index.php//home');?>">
+                <i class="icon wb-dashboard"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
             <li>
               <a href="../apps/mailbox/mailbox.html">
                 <i class="icon wb-envelope"></i>
@@ -770,12 +692,7 @@
                 <span>Forum</span>
               </a>
             </li>
-            <li>
-              <a href="../index.html">
-                <i class="icon wb-dashboard"></i>
-                <span>Dashboard</span>
-              </a>
-            </li>
+            
           </ul>
         </div>
       </div>

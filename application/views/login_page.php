@@ -11,15 +11,17 @@
 				<p>Don't have an account?</p>
 				<button>Register</button>
 			</div>
+
+
 			<div class="wrapper">			
-				<form id="login" tabindex="500">
+				<form id="login" tabindex="500" action="<?=base_url('index.php/Login/autenticar');?>" method="POST">
 					<h3>Login</h3>
 					<div class="mail">
-						<input type="email" name="">
+					<input type="text"  name="email" id="email" autocomplete="off" class="form-control">
 						<label>EMail</label>
 					</div>
 					<div class="passwd">
-						<input type="password" name="">
+					<input type="password" name="password" id="password" class="form-control">
 						<label>Password</label>
 					</div>
 					<div class="submit">
