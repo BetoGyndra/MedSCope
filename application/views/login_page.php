@@ -1,69 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <script  src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="  crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" ></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<div class="body">
-		<div class="veen">
-			<div class="login-btn splits">
-				<p>Already an user?</p>
-				<button class="active">Login</button>
-			</div>
-			<div class="rgstr-btn splits">
-				<p>Don't have an account?</p>
-				<button>Register</button>
-			</div>
-
-
-			<div class="wrapper">			
-				<form id="login" tabindex="500" action="<?=base_url('index.php/Login/autenticar');?>" method="POST">
-					<h3>Login</h3>
-					<div class="mail">
-					<input type="text"  name="email" id="email" autocomplete="off" class="form-control">
-						<label>EMail</label>
-					</div>
-					<div class="passwd">
-					<input type="password" name="password" id="password" class="form-control">
-						<label>Password</label>
-					</div>
-					<div class="submit">
-						<button class="dark">Login</button>
-					</div>
-				</form>
-				<form id="register" tabindex="502">
-					<h3>For registration Contact us</h3>
-					<h4>
-					Contact Info					
-					</h4>
-					<h5>
-					321 Awesome Street
-					New York, NY 17022
-
-					info@companyname.com					
-					</h5>
-					<h5>+1 800 123 1234</h5>
-					<br>
-					<br>
-					<br>					
-				</form>
-			</div>
-		</div>	
-	</div>
-<script>
-  $(document).ready(function(){
-			$(".veen .rgstr-btn button").click(function(){
-				$('.veen .wrapper').addClass('move');
-				$('.body').css('background','#118DD4');
-				$(".veen .login-btn button").removeClass('active');
-				$(this).addClass('active');
-
-			});
-			$(".veen .login-btn button").click(function(){
-				$('.veen .wrapper').removeClass('move');
-				$('.body').css('background','#0EBDAD');
-				$(".veen .rgstr-btn button").removeClass('active');
-				$(this).addClass('active');
-			});
-		});
-</script>
 	<style type="text/css">
 		.site-link{
       padding: 5px 15px;
@@ -261,3 +201,73 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
   box-shadow: inset 0 0 0 50px #fff
 }
 	</style>
+</head>
+<body>
+<div class="body">
+		<div class="veen">
+			<div class="login-btn splits">
+				<p>Already an user?</p>
+				<button class="active">Login</button>
+			</div>
+			<div class="rgstr-btn splits">
+				<p>Don't have an account?</p>
+				<button>Register</button>
+			</div>
+
+
+			<div class="wrapper">			
+				<form id="login" tabindex="500" action="<?=base_url('index.php/Login/autenticar');?>" method="POST">
+					<h3>Login</h3>
+					<div class="mail">
+					<input type="text"  name="email" id="email" autocomplete="off" class="form-control">
+						<label>EMail</label>
+					</div>
+					<div class="passwd">
+					<input type="password" name="password" id="password" class="form-control">
+						<label>Password</label>
+					</div>
+					<div class="submit">
+						<button class="dark">Login</button>
+					</div>
+				</form>
+				<form id="register" tabindex="502">
+					<h3>For registration Contact us</h3>
+					<h4>
+					Contact Info					
+					</h4>
+					<h5>
+					321 Awesome Street
+					New York, NY 17022
+
+					info@companyname.com					
+					</h5>
+					<h5>+1 800 123 1234</h5>
+					<br>
+					<br>
+					<br>					
+				</form>
+			</div>
+		</div>	
+	</div>
+	
+<script>
+  $(document).ready(function(){
+			$(".veen .rgstr-btn button").click(function(){
+				$('.veen .wrapper').addClass('move');
+				$('.body').css('background','#118DD4');
+				$(".veen .login-btn button").removeClass('active');
+				$(this).addClass('active');
+
+			});
+			$(".veen .login-btn button").click(function(){
+				$('.veen .wrapper').removeClass('move');
+				$('.body').css('background','#0EBDAD');
+				$(".veen .rgstr-btn button").removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+</script>
+	
+</body>
+</html>
+	
