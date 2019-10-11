@@ -27,7 +27,16 @@
                                      <th>Options</th>
                                  </tr>
                              </thead>
-                             <tbody></tbody>
+                             <tbody>
+                                    <th>joselo</th>
+                                     <th>a@a.com</th>
+                                     <th>Masculino</th>
+                                     <th>4429191911</th>
+                                     <th>
+                                     <button>actualizar</button>
+                                     <button>Status</button>
+                                     </th>
+                             </tbody>
                          </table>
                      </div>
                  </div>
