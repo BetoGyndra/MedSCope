@@ -51,28 +51,28 @@
      <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class="modal-header">
-                 <h5 class="modal-title">Registro de Usuario</h5>
+                 <h4 class="modal-title">Registro de Usuario</h4>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
              </div>
              <div class="col-lg-12">
-                 <div class="row">
+             <div class="row">                              
                      <div class="col-md-3">
                          <!-- Panel Static Labels -->
                          <div class="panel panel-info">
                              <div class="panel-heading">
                                  <h3 class="panel-title">Informacion usuario</h3>
                              </div>
-                             <div class="panel-body container-fluid">
+                             <div class="panel-body container-fluid border">
                                  <form autocomplete="off">
                                      <br>
-                                     <div class="form-group form-material" data-plugin="formMaterial">
-                                         <label class="form-control-label" for="inputText">Email</label>
-                                         <input type="email" class="form-control" id="emailUser" name="emailUser"
+                                     <div class="form-group form-material floating" data-plugin="formMaterial">        <input type="email" class="form-control" id="emailUser" name="emailUser"
                                              placeholder="" />
+                                     <label class="floating-label">Email</label>
                                      </div>
-                                     <div class="form-group form-material" data-plugin="formMaterial">
+<!--
+                                     <div class="form-group form-material floating" data-plugin="formMaterial">
                                          <label class="form-control-label" for="inputEmail">Password</label>
                                          <input type="password" class="form-control" id="passUser" name="passUser"
                                              placeholder="" />
@@ -82,7 +82,8 @@
                                          <input type="password" class="form-control" id="RpassUser" name="RpassUser"
                                              placeholder="" />
                                      </div>
-                                     <div class="form-group form-material" data-plugin="formMaterial">
+-->
+                                     <div class="form-group form-material floating" data-plugin="formMaterial">
                                          <label class="form-control-label" for="select">Tipo de usuario</label>
                                          <select class="form-control" id="typeUser" name="typeUser">
                                              <option selected disabled>Seleccione</option>
@@ -102,28 +103,28 @@
                              <div class="panel-heading">
                                  <h3 class="panel-title">Informacion Personal</h3>
                              </div>
-                             <div class="panel-body container-fluid">
+                             <div class="panel-body container-fluid border">
                                  <br>
                                  <form autocomplete="off">
                                      <div class="row">
                                          <div class="col-md-12">
-                                             <div class="form-group form-material row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">
-                                                     <label class="form-control-label" for="Name">Name</label>
+                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
+                                                 <div class="col-md-6">                                                     
                                                      <input type="text" class="form-control" id="namePerson"
                                                          name="namePerson" placeholder="" />
+                                                    <label class="floating-label">Name</label>    
                                                  </div>
-                                                 <div class="col-md-6">
-                                                     <label class="form-control-label" for="Lastname">Lastname</label>
+                                                 <div class="col-md-6">  
                                                      <input type="text" class="form-control" id="lastnamePerson"
                                                          name="lastnamePerson" placeholder="" />
+                                                         <label class="floating-label">Lastname</label> 
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">
-                                                     <label class="form-control-label" for="Name">Name</label>
+                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
+                                                 <div class="col-md-6"> 
                                                      <input type="text" class="form-control" id="namePerson"
                                                          name="namePerson" placeholder="" />
+                                                         <label class="floating-label">Lastname</label> 
                                                  </div>
                                                  <div class="col-md-6">
                                                      <label class="form-control-label" for="Birtdate">Birtdate</label>
@@ -131,11 +132,11 @@
                                                          name="birtdate" placeholder="" />
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material row" data-plugin="formMaterial">
+                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
                                                  <div class="col-md-6">
-                                                     <label class="form-control-label" for="Name">Name</label>
                                                      <input type="text" class="form-control" id="namePerson"
                                                          name="namePerson" placeholder="" />
+                                                         <label class="floating-label">Lastname</label> 
                                                  </div>
                                                  <div class="col-md-6">
                                                      <label class="form-control-label" for="Genero">Genero</label>
@@ -147,11 +148,11 @@
 
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material row" data-plugin="formMaterial">
+                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
                                                  <div class="col-md-6">
-                                                     <label class="form-control-label" for="CURP">CURP</label>
                                                      <input type="text" class="form-control" id="CURP" name="CURP"
                                                          placeholder="" />
+                                                         <label class="floating-label">CURP</label> 
                                                  </div>
                                                  <div class="col-md-6">
                                                      <label class="form-control-label" for="EstadoCivil">Estado
@@ -165,11 +166,11 @@
                                                      </select>
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material row" data-plugin="formMaterial">
+                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
                                                  <div class="col-md-6">
-                                                     <label class="form-control-label" for="Telefono">Telefono</label>
                                                      <input type="text" class="form-control" id="phonePerson"
                                                          name="phonePerson" placeholder="" />
+                                                         <label class="floating-label">Telefono</label> 
                                                  </div>
                                                  <div class="col-md-6">
                                                  </div>
@@ -187,39 +188,41 @@
                      <div class="panel-heading">
                          <h3 class="panel-title">Domicilio usuario</h3>
                      </div>
-                     <div class="panel-body container-fluid">
+                     <div class="panel-body container-fluid border">
                          <form autocomplete="off">
                              <br>
-                             <div class="form-group form-material" data-plugin="formMaterial">
-                                 <label class="form-control-label" for="Calle">Calle</label>
+                             <div class="form-group form-material floating" data-plugin="formMaterial">
+                                 
                                  <input type="text" class="form-control" id="street" name="street" placeholder="" />
-                             </div>
-                             <div class="form-group form-material row" data-plugin="formMaterial">
-                                 <div class="col-md-6">
-                                     <label class="form-control-label" for="NumeroInterior">Numero Interior</label>
+                                 <label class="floating-label">Calle</label> 
+                             </div>                             
+
+                             <div class="form-group form-material floating row" data-plugin="formMaterial">
+                                 <div class="col-md-6">                                     
                                      <input type="text" class="form-control" id="numberInt" name="numberInt"
                                          placeholder="" />
+                                    <label class="floating-label">Numero Interior</label> 
                                  </div>
                                  <div class="col-md-6">
-                                     <label class="form-control-label" for="numberExt">Numero Exterior</label>
                                      <input type="text" class="form-control" id="numberExt" name="numberExt"
                                          placeholder="" />
+                                         <label class="floating-label">Numero Exterior</label> 
                                  </div>
                              </div>
-                             <div class="form-group form-material" data-plugin="formMaterial">
-                                 <label class="form-control-label" for="Estado">Estado</label>
-                                 <input type="text" class="form-control" id="state" name="state" placeholder="Text" />
-                             </div>
-                             <div class="form-group form-material" data-plugin="formMaterial">
-                                 <label class="form-control-label" for="Municipio">Municipio</label>
+                             <div class="form-group form-material floating" data-plugin="formMaterial">
+                                 <input type="text" class="form-control" id="state" name="state" placeholder="" />
+                                 <label class="floating-label">Estado</label>
+                             </div>                             
+                             <div class="form-group form-material floating" data-plugin="formMaterial">
                                  <input type="text" class="form-control" id="townShip" name="townShip"
-                                     placeholder="Text" />
+                                     placeholder="" />
+                                     <label class="floating-label">Municipio</label>
                              </div>
-                             <div class="form-group form-material row" data-plugin="formMaterial">
-                                 <div class="col-md-6">
-                                     <label class="form-control-label" for="CodigoPostal">Codigo Postal</label>
+                             <div class="form-group form-material floating row" data-plugin="formMaterial">
+                                 <div class="col-md-6">                                     
                                      <input type="text" class="form-control" id="postalCode" name="postalCode"
                                          placeholder="" />
+                                         <label class="floating-label">Codigo Postal</label>
                                  </div>
                                  <div class="col-md-6">
                                  </div>

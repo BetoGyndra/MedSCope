@@ -48,10 +48,11 @@
     <script src="<?=base_url('src/classic/global/js/Plugin/asscrollable.js');?>"></script>
     <script src="<?=base_url('src/classic/global/js/Plugin/slidepanel.js');?>"></script>
     <script src="<?=base_url('src/classic/global/js/Plugin/switchery.js');?>"></script>
-        <script src="<?=base_url('src/classic/global/js/Plugin/aspaginator.js');?>"></script>
-        <script src="<?=base_url('src/classic/global/js/Plugin/responsive-tabs.js');?>"></script>
-        <script src="<?=base_url('src/classic/global/js/Plugin/tabs.js');?>"></script>
-    
+    <script src="<?=base_url('src/classic/global/js/Plugin/aspaginator.js');?>"></script>
+    <script src="<?=base_url('src/classic/global/js/Plugin/responsive-tabs.js');?>"></script>
+    <script src="<?=base_url('src/classic/global/js/Plugin/tabs.js');?>"></script>
+    <script src="<?=base_url('src/classic/global/js/Plugin/material.js');?>"></script>
+
     <script>
       (function(document, window, $){
         'use strict';

@@ -48,6 +48,12 @@
     <script>
       Breakpoints();
     </script>
+    <style>
+    .page {background-color: #dfdfdf;} 
+    .modal-footer {background-color: #21292e;}    
+    .panel-body {
+    background:#FFFFFF;}
+    </style>
   </head>
   <body class="animsition site-navbar-small page-user">
     <!--[if lt IE 8]>
