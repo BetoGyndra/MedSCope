@@ -45,6 +45,7 @@
     
     <!-- Scripts -->
     <script src="<?=base_url('src/classic/global/vendor/breakpoints/breakpoints.js');?>"></script>
+   
     <script>
       Breakpoints();
     </script>
@@ -53,6 +54,35 @@
     .modal-footer {background-color: #21292e;}    
     .panel-body {
     background:#FFFFFF;}
+
+    .gradient01 {
+  padding: 1rem;
+  border-width: 5px;
+  border-style: solid;
+  border-image: 
+    linear-gradient(
+      to bottom, 
+      green, 
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
+th {
+  text-align: center;
+  }
+
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
     </style>
   </head>
   <body class="animsition site-navbar-small page-user">

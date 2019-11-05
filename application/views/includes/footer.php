@@ -8,6 +8,7 @@
     </footer>
 
     
+
     <!-- Core  -->
     <script src="<?=base_url('src/classic/global/vendor/babel-external-helpers/babel-external-helpers.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/jquery/jquery.js');?>"></script>
@@ -52,6 +53,10 @@
     <script src="<?=base_url('src/classic/global/js/Plugin/responsive-tabs.js');?>"></script>
     <script src="<?=base_url('src/classic/global/js/Plugin/tabs.js');?>"></script>
     <script src="<?=base_url('src/classic/global/js/Plugin/material.js');?>"></script>
+
+    <!-- Optional JavaScript -->
+<script type="text/javascript" src="<?=base_url('resources/js/jquery.dataTables.js');?>"></script>	
+    
 
     <script>
       (function(document, window, $){

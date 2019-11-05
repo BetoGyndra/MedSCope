@@ -2,7 +2,7 @@
  <div class="page">
      <div class="page-content">
 
-         <div class="panel panel-primary">
+         <div class="panel panel-primary gradient01">
          <div class="panel-heading">
             <h3 class="panel-title">Alta de usuarios</h3>
             </div>
@@ -11,8 +11,8 @@
                  <!-- inicia card body-->
                  <div class="row">
                      <div class="col-12">
-                         <button class="btn btn-primary float-right" data-toggle="modal"
-                             data-target="#modalClientes">Nuevo</button>
+                         <button class="btn btn-success float-right"  data-toggle="modal"
+                             data-target="#modalClientes"><i class="icon  wb-user-add white" aria-hidden="true"></i>Nuevo</button>
                      </div>
                  </div>
                  <div class="row my-3">
@@ -20,22 +20,21 @@
                          <table class="table table-striped table-bordered">
                              <thead>
                                  <tr>
+                                     <th>#</th>
                                      <th>Nombre</th>
-                                     <th>Correo</th>
-                                     <th>Genero</th>
+                                     <th>Apellido</th>
+                                     <th>Genero</th>                                     
+                                     <th>Correo</th>          
                                      <th>Telefono</th>
+                                     <th>Tipo Usuario</th>
+                                     <th>Alta</th>
+                                     <th>Modificacion</th>
+                                     <th>Info</th>
                                      <th>Options</th>
                                  </tr>
                              </thead>
                              <tbody>
-                                    <th>joselo</th>
-                                     <th>a@a.com</th>
-                                     <th>Masculino</th>
-                                     <th>4429191911</th>
-                                     <th>
-                                     <button>actualizar</button>
-                                     <button>Status</button>
-                                     </th>
+                                   
                              </tbody>
                          </table>
                      </div>
@@ -63,6 +62,7 @@
                          <div class="panel panel-info">
                              <div class="panel-heading">
                                  <h3 class="panel-title">Informacion usuario</h3>
+                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                              </div>
                              <div class="panel-body container-fluid border">
                                  <form autocomplete="off">
@@ -99,11 +99,11 @@
                      <!-- End Panel Static Labels -->
                      <!-- Panel Static Labels -->
                      <div class="col-md-5">
-                         <div class="panel panel-success">
-                             <div class="panel-heading">
-                                 <h3 class="panel-title">Informacion Personal</h3>
+                         <div class="panel panel-success">                         
+                             <div class="panel-heading">                             
+                                 <h3 class="panel-title">Informacion Personal</h3>    
                              </div>
-                             <div class="panel-body container-fluid border">
+                             <div class="panel-body container-fluid border">                             
                                  <br>
                                  <form autocomplete="off">
                                      <div class="row">
@@ -235,9 +235,195 @@
          <!-- End Panel Static Labels -->
      </div>
      <div class="modal-footer">
-         <button>save</button>
+        <button type="button"  data-dismiss="modal" class="btn btn-warning">Cancel</button>
+        <button type="submit" class="btn btn-success">Save</button>         
      </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="<?=base_url('resources/js/jquery.js');?>"></script>
+	<script src="<?=base_url('resources/js/popper.js');?>"></script>
+	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
+	
 
  </div>
  </div>
  </div>
+
+       
+	
+
+ <script type="text/javascript">
+		$(function() {
+			var _action = "new";//new,uptdate,read,delete
+			let _table =$('.table').DataTable({
+				"ajax" : {
+					"url" : "http://localhost/MSC_services/index.php/Alta/api/altaV",
+					"dataSrc" : "data"
+                },              
+				"columns" : [
+					{"data" : "idPerson", "defaultContent" : ""},
+                    {"data" : "namePerson", "defaultContent" : ""},
+                    {"data" : "lastnamePerson", "defaultContent" : ""},
+                    {"data" : "genre", "defaultContent" : ""},                    
+                    {"data" : "emailUser", "defaultContent" : ""},
+                    {"data" : "phonePerson", "defaultContent" : ""},
+                    {"data" : "typeUser", "defaultContent" : ""},
+                    {"data" : "creationDatePerson", "defaultContent" : ""},
+                    {"data" : "lastModPerson", "defaultContent" : ""},
+                    {"data" : null, "defaultContent" : "<button class='btn btn-info btn-sm mx-2 btn-custom-action' data-action='consulta' title='Mas datos'><i class='icon  wb-order white' aria-hidden='true'></button>"},
+					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action' data-action='delete' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
+				], 
+				"columnDefs" : [
+					{"orderable" : false, "width" : "10%", "targets": -1}
+				]
+			});
+
+            $(document).find('#fkUsers_cli').each(function(){
+				$.ajax({
+					"url":"http://localhost/tickets2_services/index.php/usuarios_cli/api/usersCli",
+					"method":"get",
+					"success": function(response){
+						if (response.status=="success"){
+							$.each(response.data,function(key,value){
+								$('#fkUsers_cli').append('<option value="'+value.users_cliId+'">'+value.users_cliExt+'</option>');
+							});
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+			});
+
+			$(document).on('submit','#formTickets',function(event){
+				event.preventDefault();
+				limpiarCampos('formTickets');
+				var permiteEnviar = false;
+				var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket";
+				var method ="get";
+				switch(_action){
+					case 'new':
+						permiteEnviar = true;
+						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket";
+						method="post";
+						break;
+					case 'update':
+						permiteEnviar = true;
+						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+$(document).find('#ticketId').val();
+						method="put";
+                        break;
+                    case 'consulta':
+						permiteEnviar = true;
+						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+$(document).find('#ticketId').val();
+						method="get";
+						break;
+					case 'delete':
+						permiteEnviar = true;
+						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+$(document).find('#ticketId').val();
+						method="delete";
+						break;
+					case 'default':
+						permiteEnviar = false;
+						break;
+				}
+				if(permiteEnviar){
+					$.ajax({
+					"url" : uri,
+					"method" : method,
+					"data" : $('#formTickets').serialize(),
+					"success" : function(response){
+						if (response.status=="success") {
+							_table.ajax.reload();
+							$('#modaltickets').modal('hide');
+						}else if(response.status=="error"){
+							$.each(response.validations,function(key,message){
+								//console.info(key+":"+message);
+								$(document).find('#formTickets').find('#'+key).addClass('is-invalid');
+								$(document).find('#formTickets').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
+							});
+						}else{
+
+						}
+					},
+					"error" : function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+
+				}
+				
+			});
+
+			$('.table tbody').on('click','.btn-custom-action',function(){
+				var row = $(this).closest('tr');
+				var data = _table.row(row).data();
+				_action = $(this).attr('data-action');				
+				$.ajax({
+					"url":"http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+data.ticketId,
+					"method":"get",
+					"success":function(response){
+						if(response.status=="success"){
+							$('#modaltickets').modal('show');
+							$.each(response.data,function(key,value){
+								$('#formTickets').find('#'+key).val(value);                                 
+                                $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
+							});
+							$('#formTickets').append('<input type="hidden" id="ticketId" value="'+data.ticketId+'"/>');
+                           
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+					
+				});
+				switch(_action){
+					case 'update':
+					$(document).find('#titleModal').text('Actualizar Ticket');
+					$(document).find('#titleSubmit').text('Actualizar');
+						break;
+
+					case 'delete':
+					$(document).find('#titleModal').text('Borrar Ticket');
+					$(document).find('#titleSubmit').text('Borrar');
+					$(document).find('#formTickets').find('input,select').each(function(){				
+						$(this).prop('disabled','disabled');
+						
+					});
+						break;
+
+					default:
+
+						break;
+
+					}
+			});
+
+			$('#modaltickets').on('hidden.bs.modal',function(){
+				$(document).find('#formTickets').find('input').each(function(){
+				$(this).removeClass('is-invalid');
+				$(this).closest('.form-group').find('.invalid-feedback').remove();
+				$(this).val('');
+				$(document).find('#id').remove();
+				_action = "new";
+				$(document).find('#titleModal').text('Registrar Ticket');
+				$(document).find('#titleSubmit').text('Guardar');
+				$(document).find('#formTickets').find('input,select').each(function(){
+			//$(document).find('#formClientes').find('input','select','textArea').each(function(){
+				$(this).prop('disabled','');
+
+					});
+				});
+
+			});
+		});		
+
+		function limpiarCampos(idForm){
+			$(document).find('#'+idForm).find('input,select').each(function(){
+				$(this).removeClass('is-invalid');
+				$(this).closest('.form-group').find('.invalid-feedback').remove();
+			});            
+           
+		}               
+	</script>
