@@ -17,7 +17,7 @@
                  </div>
                  <div class="row my-3">
                      <div class="col-12">
-                         <table class="table table-striped table-bordered">
+                         <table class="table table-striped table-bordered " >
                              <thead>
                                  <tr>
                                      <th>#</th>
@@ -112,31 +112,31 @@
                                                  <div class="col-md-6">                                                     
                                                      <input type="text" class="form-control" id="namePerson"
                                                          name="namePerson" placeholder="" />
-                                                    <label class="floating-label">Name</label>    
+                                                    <label class="floating-label">Nombre</label>    
                                                  </div>
                                                  <div class="col-md-6">  
                                                      <input type="text" class="form-control" id="lastnamePerson"
                                                          name="lastnamePerson" placeholder="" />
-                                                         <label class="floating-label">Lastname</label> 
+                                                         <label class="floating-label">Apellido</label> 
                                                  </div>
                                              </div>
                                              <div class="form-group form-material floating row" data-plugin="formMaterial">
                                                  <div class="col-md-6"> 
-                                                     <input type="text" class="form-control" id="namePerson"
-                                                         name="namePerson" placeholder="" />
-                                                         <label class="floating-label">Lastname</label> 
+                                                     <input type="text" class="form-control" id="phonePerson"
+                                                         name="phonePerson" placeholder="" />
+                                                         <label class="floating-label">Telefono</label> 
                                                  </div>
                                                  <div class="col-md-6">
-                                                     <label class="form-control-label" for="Birtdate">Birtdate</label>
+                                                     <label class="form-control-label" for="Birtdate">Nacimiento</label>
                                                      <input type="date" class="form-control" id="birtdate"
                                                          name="birtdate" placeholder="" />
                                                  </div>
                                              </div>
                                              <div class="form-group form-material floating row" data-plugin="formMaterial">
                                                  <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="namePerson"
-                                                         name="namePerson" placeholder="" />
-                                                         <label class="floating-label">Lastname</label> 
+                                                     <input type="text" class="form-control" id="age"
+                                                         name="age" placeholder="" />
+                                                         <label class="floating-label">Edad</label> 
                                                  </div>
                                                  <div class="col-md-6">
                                                      <label class="form-control-label" for="Genero">Genero</label>
@@ -168,9 +168,7 @@
                                              </div>
                                              <div class="form-group form-material floating row" data-plugin="formMaterial">
                                                  <div class="col-md-6">
-                                                     <input type="text" class="form-control" id="phonePerson"
-                                                         name="phonePerson" placeholder="" />
-                                                         <label class="floating-label">Telefono</label> 
+                                                      
                                                  </div>
                                                  <div class="col-md-6">
                                                  </div>
