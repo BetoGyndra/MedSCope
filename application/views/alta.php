@@ -12,7 +12,7 @@
                  <div class="row">
                      <div class="col-12">
                          <button class="btn btn-success float-right"  data-toggle="modal"
-                             data-target="#modalClientes"><i class="icon  wb-user-add white" aria-hidden="true"></i>Nuevo</button>
+                             data-target="#modalAlta"><i class="icon  wb-user-add white" aria-hidden="true"></i>Nuevo</button>
                      </div>
                  </div>
                  <div class="row my-3">
@@ -46,7 +46,7 @@
      </div>
  </div>
 
- <div class="modal fade" tabindex="-1" role="dialog" id="modalClientes">
+ <div class="modal fade" tabindex="-1" role="dialog" id="modalAlta">
      <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class="modal-header">
@@ -59,13 +59,14 @@
              <div class="row">                              
                      <div class="col-md-3">
                          <!-- Panel Static Labels -->
+                         <form autocomplete="off" id="formAlta">
                          <div class="panel panel-info">
                              <div class="panel-heading">
                                  <h3 class="panel-title">Informacion usuario</h3>
                                  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                              </div>
                              <div class="panel-body container-fluid border">
-                                 <form autocomplete="off">
+                                 
                                      <br>
                                      <div class="form-group form-material floating" data-plugin="formMaterial">        <input type="email" class="form-control" id="emailUser" name="emailUser"
                                              placeholder="" />
@@ -92,7 +93,7 @@
                                              <option>Cobranza</option>
                                          </select>
                                      </div>
-                                 </form>
+                                 
                              </div>
                          </div>
                      </div>
@@ -105,11 +106,12 @@
                              </div>
                              <div class="panel-body container-fluid border">                             
                                  <br>
-                                 <form autocomplete="off">
+                                 
                                      <div class="row">
                                          <div class="col-md-12">
                                              <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">                                                     
+                                                 <div class="col-md-6">   
+
                                                      <input type="text" class="form-control" id="namePerson"
                                                          name="namePerson" placeholder="" />
                                                     <label class="floating-label">Nombre</label>    
@@ -140,7 +142,7 @@
                                                  </div>
                                                  <div class="col-md-6">
                                                      <label class="form-control-label" for="Genero">Genero</label>
-                                                     <select class="form-control" id="genre" name="genre">
+                                                     <select class="form-control" id="genre" name="genre" id="name="genre"">
                                                          <option selected disabled>Seleccione</option>
                                                          <option>Masculino</option>
                                                          <option>Femenino</option>
@@ -165,15 +167,7 @@
                                                          <option value="widowed">Viudo</option>
                                                      </select>
                                                  </div>
-                                             </div>
-                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">
-                                                      
-                                                 </div>
-                                                 <div class="col-md-6">
-                                                 </div>
-                                             </div>
-                                 </form>
+                                             </div>                                            
                              </div>
                          </div>
                      </div>
@@ -187,7 +181,7 @@
                          <h3 class="panel-title">Domicilio usuario</h3>
                      </div>
                      <div class="panel-body container-fluid border">
-                         <form autocomplete="off">
+                         
                              <br>
                              <div class="form-group form-material floating" data-plugin="formMaterial">
                                  
@@ -226,7 +220,7 @@
                                  </div>
                              </div>
                      </div>
-                     </form>
+                     
                  </div>
              </div>
          </div>
@@ -236,7 +230,7 @@
         <button type="button"  data-dismiss="modal" class="btn btn-warning">Cancel</button>
         <button type="submit" class="btn btn-success">Save</button>         
      </div>
-
+     </form>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?=base_url('resources/js/jquery.js');?>"></script>
@@ -294,31 +288,31 @@
 				});
 			});
 
-			$(document).on('submit','#formTickets',function(event){
+			$(document).on('submit','#formAlta',function(event){
 				event.preventDefault();
-				limpiarCampos('formTickets');
+				limpiarCampos('formAlta');
 				var permiteEnviar = false;
-				var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket";
+				var uri="http://localhost/MSC_services/index.php/Alta/api/alta";
 				var method ="get";
 				switch(_action){
 					case 'new':
 						permiteEnviar = true;
-						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket";
+						var uri="http://localhost/MSC_services/index.php/Alta/api/alta";
 						method="post";
 						break;
 					case 'update':
 						permiteEnviar = true;
-						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+$(document).find('#ticketId').val();
+						var uri="http://localhost/MSC_services/index.php/Alta/api/alta/id/"+$(document).find('#idPerson').val();
 						method="put";
                         break;
                     case 'consulta':
 						permiteEnviar = true;
-						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+$(document).find('#ticketId').val();
+						var uri="http://localhost/MSC_services/index.php/Alta/api/alta/id/"+$(document).find('#idPerson').val();
 						method="get";
 						break;
 					case 'delete':
 						permiteEnviar = true;
-						var uri="http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+$(document).find('#ticketId').val();
+						var uri="http://localhost/MSC_services/index.php/Alta/api/alta/id/"+$(document).find('#idPerson').val();
 						method="delete";
 						break;
 					case 'default':
@@ -329,16 +323,16 @@
 					$.ajax({
 					"url" : uri,
 					"method" : method,
-					"data" : $('#formTickets').serialize(),
+					"data" : $('#formAlta').serialize(),
 					"success" : function(response){
 						if (response.status=="success") {
 							_table.ajax.reload();
-							$('#modaltickets').modal('hide');
+							$('#modalAlta').modal('hide');
 						}else if(response.status=="error"){
 							$.each(response.validations,function(key,message){
 								//console.info(key+":"+message);
-								$(document).find('#formTickets').find('#'+key).addClass('is-invalid');
-								$(document).find('#formTickets').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
+								$(document).find('#formAlta').find('#'+key).addClass('is-invalid');
+								$(document).find('#formAlta').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
 							});
 						}else{
 
@@ -358,16 +352,16 @@
 				var data = _table.row(row).data();
 				_action = $(this).attr('data-action');				
 				$.ajax({
-					"url":"http://localhost/tickets2_services/index.php/tickets/Api/ticket/id/"+data.ticketId,
+					"url":"http://localhost/MSC_services/index.php/Alta/api/alta/id/"+data.idPerson,
 					"method":"get",
 					"success":function(response){
 						if(response.status=="success"){
-							$('#modaltickets').modal('show');
+							$('#modalAlta').modal('show');
 							$.each(response.data,function(key,value){
-								$('#formTickets').find('#'+key).val(value);                                 
+								$('#formAlta').find('#'+key).val(value);                                 
                                 $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
 							});
-							$('#formTickets').append('<input type="hidden" id="ticketId" value="'+data.ticketId+'"/>');
+							$('#formAlta').append('<input type="hidden" id="idPerson" value="'+data.idPerson+'"/>');
                            
 						}
 					},
@@ -398,7 +392,7 @@
 					}
 			});
 
-			$('#modaltickets').on('hidden.bs.modal',function(){
+			$('#modalAlta').on('hidden.bs.modal',function(){
 				$(document).find('#formTickets').find('input').each(function(){
 				$(this).removeClass('is-invalid');
 				$(this).closest('.form-group').find('.invalid-feedback').remove();
