@@ -445,19 +445,9 @@ th {
           <ul class="site-menu-sub">
             <li class="site-menu-item">
               <a class="animsition-link" href="<?=base_url('index.php/alta');?>">
-                <span class="site-menu-title">Medicos</span>
+                <span class="site-menu-title">Empleados</span>
               </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../dashboard/v2.html">
-                <span class="site-menu-title">Recepcionista</span>
-              </a>
-            </li>           
-            <li class="site-menu-item">
-              <a class="animsition-link" href="<?=base_url('index.php/alta');?>">
-                <span class="site-menu-title">Cobranza</span>
-              </a>
-            </li>
+            </li>            
             <li class="site-menu-item">
               <a class="animsition-link" href="<?=base_url('index.php/alta');?>">
                 <span class="site-menu-title">Especialidades</span>

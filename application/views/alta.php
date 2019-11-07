@@ -228,10 +228,58 @@
                      </div>
                      
                  </div>
-             </div>
+             </div>             
          </div>
-         <!-- End Panel Static Labels -->
-     </div>
+         <!-- End Panel Static Labels -->                             
+         
+                 <div class="panel panel-danger ">
+                     <div class="panel-heading">
+                         <h3 class="panel-title">Datos De Empleado</h3>
+                     </div>
+                     <div class="panel-body container-fluid border">
+                         
+                             <br>
+                             <div class="col-lg-12">
+                             <div class="row">
+                             <div class="col-md-4">
+                             <div class="form-group form-material floating" data-plugin="formMaterial">                                 
+                                 <input type="text" class="form-control" id="RFC" name="RFC" placeholder="" />
+                                 <label class="floating-label">RFC</label> 
+                             </div>
+                             </div>
+                             <div class="col-md-4">
+                             <div class="form-group form-material floating" data-plugin="formMaterial">                                 
+                                 <input type="text" class="form-control" id="noSecure" name="noSecure" placeholder="" />
+                                 <label class="floating-label">Numero De seguro</label> 
+                             </div>                             
+                             </div>
+                             <div class="col-md-4">                             
+                             <div class="form-group form-material floating" data-plugin="formMaterial">
+                             <label class="form-control-label" for="tipeContract">Tipo de Contrato</label>
+                                <select class="form-control" id="tipeContract" name="tipeContract">
+                                    <option selected disabled>Seleccione</option>
+                                    <option value="indefinite">Indefinido</option>
+                                    <option value="fixedTerm">Definido</option>                                    
+                                </select>
+                             </div>
+                             </div> 
+                             </div> 
+                             </div>                             
+
+                             <div id="medicinput" style="display: none">
+                             <div class="col-md-4">
+                             <div class="form-group form-material floating" data-plugin="formMaterial">                                 
+                                 <input type="text" class="form-control" id="professionalId" name="professionalId" placeholder="" />
+                                 <label class="floating-label">Cedula Profesional</label> 
+                             </div>                             
+                             </div>
+                             </div>
+                                              
+                        </div>
+                 </div>
+            
+        
+     </div>     
      <div class="modal-footer">
         <button type="button"  data-dismiss="modal" class="btn btn-warning">Cancel</button>
         <button type="submit" class="btn btn-success">Save</button>         
@@ -330,6 +378,7 @@
 						if (response.status=="success") {
 							_table.ajax.reload();
 							$('#modalAlta').modal('hide');
+                            $(".modal-backdrop").remove();
 						}else if(response.status=="error"){
 							$.each(response.validations,function(key,message){
 								//console.info(key+":"+message);
@@ -428,5 +477,22 @@
 				$(this).closest('.form-group').find('.invalid-feedback').remove();
 			});            
            
-		}               
+		}
+        //codigo para ocultar campo cuando cambie un comboBox
+        var choice_combo = document.getElementById('typeUser');
+        choice_combo.onchange = function() {
+            switch (this.value) {
+            case 'Medic':
+                document.getElementById("medicinput").style.display = 'block';                
+                break;
+            case 'Receptionist':
+            document.getElementById("medicinput").style.display = 'none';                
+            break;
+            case 'Collection':
+            document.getElementById("medicinput").style.display = 'none';                
+            break;           
+            default:
+                document.getElementById("medicinput").style.display = 'none';
+            }
+        }      
 	</script>
