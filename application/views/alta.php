@@ -50,16 +50,16 @@
      <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
              <div class="modal-header">
-                 <h4 class="modal-title">Registro de Usuario</h4>
+                 <h4 class="modal-title" id="titleModal">Registro de Usuario</h4>
                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                  </button>
-             </div>
+             </div>            
              <div class="col-lg-12">
+             <form autocomplete="off" id="formAlta">
              <div class="row">                              
                      <div class="col-md-3">
-                         <!-- Panel Static Labels -->
-                         <form autocomplete="off" id="formAlta">
+                         <!-- Panel Static Labels -->                         
                          <div class="panel panel-info">
                              <div class="panel-heading">
                                  <h3 class="panel-title">Informacion usuario</h3>
@@ -71,28 +71,28 @@
                                      <div class="form-group form-material floating" data-plugin="formMaterial">        <input type="email" class="form-control" id="emailUser" name="emailUser"
                                              placeholder="" />
                                      <label class="floating-label">Email</label>
-                                     </div>
-<!--
-                                     <div class="form-group form-material floating" data-plugin="formMaterial">
-                                         <label class="form-control-label" for="inputEmail">Password</label>
+                                     </div>                                     
+
+                                     <div class="form-group form-material floating" data-plugin="formMaterial">                              
                                          <input type="password" class="form-control" id="passUser" name="passUser"
                                              placeholder="" />
+                                             <label class="floating-label">Password</label>
                                      </div>
-                                     <div class="form-group form-material" data-plugin="formMaterial">
-                                         <label class="form-control-label" for="inputPassword">Repeat Password</label>
+                                     <div class="form-group form-material floating" data-plugin="formMaterial">
                                          <input type="password" class="form-control" id="RpassUser" name="RpassUser"
                                              placeholder="" />
+                                             <label class="floating-label">Repetir Password</label>
                                      </div>
--->
                                      <div class="form-group form-material floating" data-plugin="formMaterial">
                                          <label class="form-control-label" for="select">Tipo de usuario</label>
                                          <select class="form-control" id="typeUser" name="typeUser">
                                              <option selected disabled>Seleccione</option>
-                                             <option>Medico</option>
-                                             <option>Recepcionista</option>
-                                             <option>Cobranza</option>
+                                             <option value="Medic">Medico</option>
+                                             <option value="Reception">Recepcionista</option>
+                                             <option value="Collection">Cobranza</option>
                                          </select>
                                      </div>
+                                     
                                  
                              </div>
                          </div>
@@ -109,54 +109,54 @@
                                  
                                      <div class="row">
                                          <div class="col-md-12">
-                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">   
-
+                                             <div class="form-material floating row" data-plugin="formMaterial">                                              
+                                                 <div class="col-md-6 form-group">                                                  
                                                      <input type="text" class="form-control" id="namePerson"
                                                          name="namePerson" placeholder="" />
                                                     <label class="floating-label">Nombre</label>    
                                                  </div>
-                                                 <div class="col-md-6">  
+                                                 
+                                                 <div class="col-md-6 form-group">  
                                                      <input type="text" class="form-control" id="lastnamePerson"
                                                          name="lastnamePerson" placeholder="" />
                                                          <label class="floating-label">Apellido</label> 
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                                 <div class="col-md-6"> 
+                                             <div class="form-material floating row" data-plugin="formMaterial">
+                                                 <div class="col-md-6 form-group"> 
                                                      <input type="text" class="form-control" id="phonePerson"
                                                          name="phonePerson" placeholder="" />
                                                          <label class="floating-label">Telefono</label> 
                                                  </div>
-                                                 <div class="col-md-6">
+                                                 <div class="col-md-6 form-group">
                                                      <label class="form-control-label" for="Birtdate">Nacimiento</label>
                                                      <input type="date" class="form-control" id="birtdate"
                                                          name="birtdate" placeholder="" />
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">
+                                             <div class="form-material floating row" data-plugin="formMaterial">
+                                                 <div class="col-md-6 form-group">
                                                      <input type="text" class="form-control" id="age"
                                                          name="age" placeholder="" />
                                                          <label class="floating-label">Edad</label> 
                                                  </div>
-                                                 <div class="col-md-6">
+                                                 <div class="col-md-6 form-group">
                                                      <label class="form-control-label" for="Genero">Genero</label>
                                                      <select class="form-control" id="genre" name="genre" id="name="genre"">
                                                          <option selected disabled>Seleccione</option>
-                                                         <option>Masculino</option>
-                                                         <option>Femenino</option>
+                                                         <option value="Male">Masculino</option>
+                                                         <option value="Female">Femenino</option>
                                                      </select>
 
                                                  </div>
                                              </div>
-                                             <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                                 <div class="col-md-6">
+                                             <div class="form-material floating row" data-plugin="formMaterial">
+                                                 <div class="col-md-6 form-group">
                                                      <input type="text" class="form-control" id="CURP" name="CURP"
                                                          placeholder="" />
                                                          <label class="floating-label">CURP</label> 
                                                  </div>
-                                                 <div class="col-md-6">
+                                                 <div class="col-md-6 form-group">
                                                      <label class="form-control-label" for="EstadoCivil">Estado
                                                          Civil</label>
                                                      <select class="form-control" id="civilStatus" name="civilStatus">
@@ -187,15 +187,21 @@
                                  
                                  <input type="text" class="form-control" id="street" name="street" placeholder="" />
                                  <label class="floating-label">Calle</label> 
-                             </div>                             
+                             </div>
 
+                              <div class="form-group form-material floating" data-plugin="formMaterial">
+                                 
+                                 <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="" />
+                                 <label class="floating-label">Colonia</label> 
+                             </div>                                
+ 
                              <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                 <div class="col-md-6">                                     
+                                 <div class="col-md-6 form-group">                                     
                                      <input type="text" class="form-control" id="numberInt" name="numberInt"
                                          placeholder="" />
                                     <label class="floating-label">Numero Interior</label> 
                                  </div>
-                                 <div class="col-md-6">
+                                 <div class="col-md-6 form-group">
                                      <input type="text" class="form-control" id="numberExt" name="numberExt"
                                          placeholder="" />
                                          <label class="floating-label">Numero Exterior</label> 
@@ -210,8 +216,8 @@
                                      placeholder="" />
                                      <label class="floating-label">Municipio</label>
                              </div>
-                             <div class="form-group form-material floating row" data-plugin="formMaterial">
-                                 <div class="col-md-6">                                     
+                             <div class="form-material floating row" data-plugin="formMaterial">
+                                 <div class="col-md-6 form-group">                                     
                                      <input type="text" class="form-control" id="postalCode" name="postalCode"
                                          placeholder="" />
                                          <label class="floating-label">Codigo Postal</label>
@@ -229,8 +235,9 @@
      <div class="modal-footer">
         <button type="button"  data-dismiss="modal" class="btn btn-warning">Cancel</button>
         <button type="submit" class="btn btn-success">Save</button>         
+        </form>
      </div>
-     </form>
+     
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?=base_url('resources/js/jquery.js');?>"></script>
@@ -292,7 +299,7 @@
 				event.preventDefault();
 				limpiarCampos('formAlta');
 				var permiteEnviar = false;
-				var uri="http://localhost/MSC_services/index.php/Alta/api/alta";
+				var uri="http://localhost/MSC_services/index.php/Alta/api/altaV";
 				var method ="get";
 				switch(_action){
 					case 'new':
@@ -302,19 +309,14 @@
 						break;
 					case 'update':
 						permiteEnviar = true;
-						var uri="http://localhost/MSC_services/index.php/Alta/api/alta/id/"+$(document).find('#idPerson').val();
+						var uri="http://localhost/MSC_services/index.php/Alta/api/altaV/id/"+$(document).find('#idPerson').val();
 						method="put";
                         break;
                     case 'consulta':
-						permiteEnviar = true;
-						var uri="http://localhost/MSC_services/index.php/Alta/api/alta/id/"+$(document).find('#idPerson').val();
+						permiteEnviar = false;
+						var uri="http://localhost/MSC_services/index.php/Alta/api/altaV/id/"+$(document).find('#idPerson').val();
 						method="get";
-						break;
-					case 'delete':
-						permiteEnviar = true;
-						var uri="http://localhost/MSC_services/index.php/Alta/api/alta/id/"+$(document).find('#idPerson').val();
-						method="delete";
-						break;
+						break;					
 					case 'default':
 						permiteEnviar = false;
 						break;
@@ -372,16 +374,25 @@
 				});
 				switch(_action){
 					case 'update':
-					$(document).find('#titleModal').text('Actualizar Ticket');
-					$(document).find('#titleSubmit').text('Actualizar');
+					$(document).find('#titleModal').text('Actualizar Registro');
+					$(document).find('#titleSubmit').text('Actualizar');  
+                    $('#formAlta').find('input').each(function(){
+                       $(this).removeClass('empty');
+                    });
+                    /*$(document).find('input,select').on('change',function(){     
+                        alert(1);                  
+                        $('#formAlta').each('input,select',function(){
+                            alert(1);
+                            $(this).removeClass('empty');
+                        });
+                     });*/			                
 						break;
 
 					case 'delete':
 					$(document).find('#titleModal').text('Borrar Ticket');
 					$(document).find('#titleSubmit').text('Borrar');
 					$(document).find('#formTickets').find('input,select').each(function(){				
-						$(this).prop('disabled','disabled');
-						
+						$(this).prop('disabled','disabled');						
 					});
 						break;
 
@@ -393,15 +404,15 @@
 			});
 
 			$('#modalAlta').on('hidden.bs.modal',function(){
-				$(document).find('#formTickets').find('input').each(function(){
+				$(document).find('#formAlta').find('input').each(function(){
 				$(this).removeClass('is-invalid');
 				$(this).closest('.form-group').find('.invalid-feedback').remove();
 				$(this).val('');
 				$(document).find('#id').remove();
 				_action = "new";
-				$(document).find('#titleModal').text('Registrar Ticket');
+				$(document).find('#titleModal').text('Registrar Persona');
 				$(document).find('#titleSubmit').text('Guardar');
-				$(document).find('#formTickets').find('input,select').each(function(){
+				$(document).find('#formAlta').find('input,select').each(function(){
 			//$(document).find('#formClientes').find('input','select','textArea').each(function(){
 				$(this).prop('disabled','');
 
