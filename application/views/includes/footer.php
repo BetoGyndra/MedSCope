@@ -8,6 +8,7 @@
     </footer>
 
     
+    
 
     <!-- Core  -->
     <script src="<?=base_url('src/classic/global/vendor/babel-external-helpers/babel-external-helpers.js');?>"></script>
@@ -26,6 +27,13 @@
     <script src="<?=base_url('src/classic/global/vendor/screenfull/screenfull.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/slidepanel/jquery-slidePanel.js');?>"></script>
         <script src="<?=base_url('src/classic/global/vendor/aspaginator/jquery-asPaginator.min.js');?>"></script>
+
+        <script src="<?=base_url('src/classic/global/vendor/moment/moment.min.js');?>"></script>
+        
+        <script src="<?=base_url('src/classic/global/vendor/toastr/toastr.js');?>"></script>
+        
+        
+
         
     <!-- Scripts -->
     <script src="<?=base_url('src/classic/global/js/Component.js');?>"></script>
@@ -52,7 +60,19 @@
     <script src="<?=base_url('src/classic/global/js/Plugin/aspaginator.js');?>"></script>
     <script src="<?=base_url('src/classic/global/js/Plugin/responsive-tabs.js');?>"></script>
     <script src="<?=base_url('src/classic/global/js/Plugin/tabs.js');?>"></script>
+
     <script src="<?=base_url('src/classic/global/js/Plugin/material.js');?>"></script>
+    
+    <script src="<?=base_url('src/classic/global/js/Plugin/toastr.js');?>"></script>
+
+    
+    
+  
+
+    
+
+
+    
 
     <!-- Optional JavaScript -->
 <script type="text/javascript" src="<?=base_url('resources/js/jquery.dataTables.js');?>"></script>	

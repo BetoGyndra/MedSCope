@@ -8,6 +8,9 @@
     <meta name="author" content="">
     
     <title>admin | MedSCope</title>
+
+    
+        
     
     <link rel="apple-touch-icon" href="<?=base_url('src/classic/mmenu/assets/images/apple-touch-icon.png');?>">
     <link rel="shortcut icon" href="<?=base_url('src/classic/mmenu/assets/images/favicon.ico');?>">
@@ -29,6 +32,8 @@
     
     
        
+        <link rel="stylesheet" href="<?=base_url('src/classic/global/vendor/toastr/toastr.css');?>">
+        <link rel="stylesheet" href="<?=base_url('src/classic/mmenu/assets/examples/css/advanced/toastr.css');?>">
         
 
         
@@ -39,6 +44,13 @@
     <link rel="stylesheet" href="<?=base_url('src/classic/global/fonts/brand-icons/brand-icons.min.css');?>">
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     
+
+
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
     <!--[if lt IE 9]>
     <script src="../../../global/vendor/html5shiv/html5shiv.min.js"></script>
     <![endif]-->
@@ -77,6 +89,9 @@ th {
   text-align: center;  
   }
 
+  .black{
+    color: #000000;
+  }
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
@@ -109,8 +124,8 @@ th {
           <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-          <img class="navbar-brand-logo" src="" title="">
-          <span class="navbar-brand-text hidden-xs-down"></span>
+          <img class="navbar-brand-logo" style="width:33px; height:36px" src="<?=base_url('src/img/medscope3.png');?>" title="">
+          <span class="navbar-brand-text hidden-xs-down black">Medscope</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">
@@ -438,7 +453,7 @@ th {
       <ul class="site-menu">
         <li class="site-menu-item has-sub">
           <a href="javascript:;">
-                  <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                  <i class="site-menu-icon  wb-user-add" aria-hidden="true"></i>
                   <span class="site-menu-title">Alta</span>
                           <span class="site-menu-arrow"></span>
               </a>
@@ -463,12 +478,12 @@ th {
               </a>
           <ul class="site-menu-sub">
             <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/general.html">
+              <a class="animsition-link" href="<?=base_url('index.php/horarios');?>">
                 <span class="site-menu-title">Horarios</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link" href="../forms/material.html">
+              <a class="animsition-link" href="<?=base_url('index.php/noatencion');?>">
                 <span class="site-menu-title">Fechas no Atencion</span>
               </a>
             </li>
@@ -525,7 +540,7 @@ th {
           <li>
               <a href="<?=base_url('index.php//home');?>">
                 <i class="icon wb-dashboard"></i>
-                <span>Dashboard</span>
+                <span>Home</span>
               </a>
             </li>
             <li>
@@ -539,13 +554,7 @@ th {
                 <i class="icon wb-calendar"></i>
                 <span>Calendar</span>
               </a>
-            </li>
-            <li>
-              <a href="../apps/contacts/contacts.html">
-                <i class="icon wb-user"></i>
-                <span>Contacts</span>
-              </a>
-            </li>
+            </li>            
             <li>
               <a href="../apps/media/overview.html">
                 <i class="icon wb-camera"></i>
@@ -557,19 +566,7 @@ th {
                 <i class="icon wb-order"></i>
                 <span>Documents</span>
               </a>
-            </li>
-            <li>
-              <a href="../apps/projects/projects.html">
-                <i class="icon wb-image"></i>
-                <span>Project</span>
-              </a>
-            </li>
-            <li>
-              <a href="../apps/forum/forum.html">
-                <i class="icon wb-chat-group"></i>
-                <span>Forum</span>
-              </a>
-            </li>
+            </li>            
             
           </ul>
         </div>

@@ -13,15 +13,35 @@
                          <button class="btn btn-success float-right"  data-toggle="modal"
                              data-target="#modalEspecial"><i class="icon   wb-add-file white" aria-hidden="true"></i>Nuevo</button>
                      </div>
-                 </div>
+				 </div>
+
+				 <div class="toast"  style="display: none;" id="toastersuccess" name="toastersuccess" aria-live="polite"    		data-plugin="toastr"
+                      
+                      data-container-id="toast-top-right" data-position-class="toast-top-right"
+                      data-icon-class="toast-just-text toast-success toast-shadow"
+                      role="alert">
+                      <div class="toast toast-just-text toast-shadow toast-success">
+                        <button type="button" class="toast-close-button" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                        <div class="toast-message">							
+                          </div>
+                      </div>
+					</div>
+					
+					
 				<div class="row my-3">
 					<div class="col-12">
 						<table class="table table-striped table-bordered">
 							<thead>
 								<tr>
-									<th>Abreviacion</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción</th>								
+									<th>#</th>
+                                    <th>Abreviacion</th>
+									<th>Nombre</th>
+									<th>Descripcion</th>
+									<th>Status</th>
+									<th>Creación</th>
+                                    <th>Modificación</th>								
 									<th>Options</th>
 								</tr>
 							</thead>
@@ -78,15 +98,7 @@
                              </div> 
                              </div> 
                              </div>                             
-
-                             <div id="medicinput" style="display: none">
-                             <div class="col-md-4">
-                             <div class="form-group form-material floating" data-plugin="formMaterial">                                 
-                                 <input type="text" class="form-control" id="professionalId" name="professionalId" placeholder="" />
-                                 <label class="floating-label">Cedula Profesional</label> 
-                             </div>                             
-                             </div>
-                             </div>
+                            
                                               
                         </div>
                  </div>
@@ -100,21 +112,60 @@
      </div>
      
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?=base_url('resources/js/jquery.js');?>"></script>
-	<script src="<?=base_url('resources/js/popper.js');?>"></script>
-	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
-	
+    
 
  </div>
  </div>
  </div> 
 
 
+ <div class="modal fade" tabindex="-1" role="dialog" id="modalstatus">
+     <div class="modal-dialog modal-sm" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title" id="titleModal">Cambiar status</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>            
+             <div class="col-lg-12">
+             <form autocomplete="off" id="formstatus">            
+         <!-- End Panel Static Labels -->                                                       
+                     <div class="panel-body container-fluid border">  
+						                                                  
+                             <div class="col-lg-12">							 
+									 <div id="nombreEspecialidad"> </div>
+								 <div class="row">
+									 
+								<div class="col-lg-6">
+								<button type="button"  data-dismiss="modal" class="btn btn-warning">No</button>
+								</div>
+								<div class="col-lg-6">
+								<button type="submit" class="btn btn-success">Si</button>  
+								</div>                                      						
+							 </div>   
+							 </div>                                                                                                    
+                        </div>                                   
+			</div>     
+			<div class="modal-footer">
+					
+			</form>
+			</div>
+		</div>
+	</div>
+</div> 
+
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="<?=base_url('resources/js/jquery.js');?>"></script>
+	<script src="<?=base_url('resources/js/popper.js');?>"></script>
+	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
+	
+
+
  
  <script type="text/javascript">
 		$(function() {
-			var _action = "new";//new,uptdate,read,delete
+			var _action = "new"; //new,uptdate,read,delete
 			let _table =$('.table').DataTable({
 				"ajax" : {
 					"url" : "http://localhost/MSC_services/index.php/speciality/Api/speciality",
@@ -128,7 +179,7 @@
                     {"data" : "statusSpecialty", "defaultContent" : ""},
                     {"data" : "creationDateSpecialty", "defaultContent" : ""},
                     {"data" : "lastModSpecialty", "defaultContent" : ""},                                     
-					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action' data-action='delete' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
+					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action2' data-action='status' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
 				], 
 				"columnDefs" : [
 					{"orderable" : false, "width" : "10%", "targets": -1}
@@ -185,11 +236,18 @@
 					"data" : $('#formEspecial').serialize(),
 					"success" : function(response){
 						if (response.status=="success") {
+							
+							var mensaje = response.message;
+							$('#toastersuccess').prop("data-message", mensaje);
+							$('#toastersuccess').click();	
+
 							_table.ajax.reload();
 							$('#modalEspecial').modal('hide');
                             $(".modal-backdrop").remove();
 						}else if(response.status=="error"){
-							$.each(response.validations,function(key,message){
+
+
+							$.each(response.validations,function(key,message){								
 								//console.info(key+":"+message);
 								$(document).find('#formEspecial').find('#'+key).addClass('is-invalid');
 								$(document).find('#formEspecial').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
@@ -207,7 +265,8 @@
 				
 			});
 
-			$('.table tbody').on('click','.btn-custom-action',function(){
+			$('.table tbody').on('click','.btn-custom-action',function(){							
+
 				var row = $(this).closest('tr');
 				var data = _table.row(row).data();
 				_action = $(this).attr('data-action');				
@@ -220,8 +279,8 @@
 							$.each(response.data,function(key,value){
 								$('#formEspecial').find('#'+key).val(value);                                 
                                 $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
-							});
-							$('#formEspecial').append('<input type="hidden" id="idSpecialty" value="'+data.idSpecialty+'"/>');
+							});							
+							$('#formstatus').append('<input type="text" id="idSpecialty" name="idSpecialty" value="'+data.idSpecialty+'"/>');
                            
 						}
 					},
@@ -249,7 +308,7 @@
 					case 'delete':
 					$(document).find('#titleModal').text('Borrar Ticket');
 					$(document).find('#titleSubmit').text('Borrar');
-					$(document).find('#formTickets').find('input,select').each(function(){				
+					$(document).find('#formEspecial').find('input,select,textarea').each(function(){				
 						$(this).prop('disabled','disabled');						
 					});
 						break;
@@ -261,16 +320,77 @@
 					}
 			});
 
+			$('.table tbody').on('click','.btn-custom-action2',function(){
+				var row = $(this).closest('tr');
+				var data = _table.row(row).data();
+				_action = $(this).attr('data-action');				
+				$.ajax({
+					"url":"http://localhost/MSC_services/index.php/speciality/Api/speciality/id/"+data.idSpecialty,
+					"method":"get",
+					"success":function(response){
+						if(response.status=="success"){
+							$('#modalstatus').modal('show');							
+							$('#formstatus').append('<input type="hidden" id="idSpecialty" name="idSpecialty" value="'+data.idSpecialty+'"/>');
+							if(data.statusSpecialty == 'Active'){
+								$(document).find('#nombreEspecialidad').append('<h4 id="ns">Esta seguro que desea "desactivar" la especialidad : ('+data.nameSpecialty+')</h4>');					
+								$('#formstatus').append('<input type="hidden" id="statusSpecialty" name="statusSpecialty" value="Inactive"/>');								
+							}else{
+								$(document).find('#nombreEspecialidad').append('<h4 id="ns">Esta seguro que desea "activar" la especialidad : ('+data.nameSpecialty+')</h4>');					
+								$('#formstatus').append('<input type="hidden" id="statusSpecialty" name="statusSpecialty" value="Active"/>');
+							}
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+					
+				});
+				$(document).on('submit','#formstatus',function(event){
+					event.preventDefault();
+					$.ajax({
+					"url":"http://localhost/MSC_services/index.php/speciality/Api/specialitystatus/id/"+data.idSpecialty,
+					"method":"put",
+					"data" : $('#formstatus').serialize(),
+					"success" : function(response){
+						if (response.status=="success") {
+							_table.ajax.reload();
+							$('#modalstatus').modal('hide');
+                            $(".modal-backdrop").remove();
+						}else if(response.status=="error"){
+							$.each(response.validations,function(key,message){
+								//console.info(key+":"+message);								
+							});
+						}else{
+						}
+					},
+					"error" : function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+				});
+				
+			});
+
+			$('#modalstatus').on('hidden.bs.modal',function(){
+				$(document).find('#formstatus').each(function(){						
+				$(document).find('#idSpecialty').remove();	
+				$(document).find('#ns').remove();				
+					});
+				});
+
+			
+				
+
 			$('#modalEspecial').on('hidden.bs.modal',function(){
 				$(document).find('#formEspecial').find('input').each(function(){
 				$(this).removeClass('is-invalid');
 				$(this).closest('.form-group').find('.invalid-feedback').remove();
 				$(this).val('');
-				$(document).find('#id').remove();
+				$(document).find('#idSpecialty').remove();
 				_action = "new";
 				$(document).find('#titleModal').text('Registrar Persona');
 				$(document).find('#titleSubmit').text('Guardar');
-				$(document).find('#formEspecial').find('input,select').each(function(){
+				$(document).find('#formEspecial').find('input,select,textarea').each(function(){
 			//$(document).find('#formClientes').find('input','select','textArea').each(function(){
 				$(this).prop('disabled','');
 
@@ -287,21 +407,5 @@
 			});            
            
 		}
-        //codigo para hacer dinamico el combo box dependiendo el tipo de usuario;
-        var choice_combo = document.getElementById('typeUser');
-        choice_combo.onchange = function() {
-            switch (this.value) {
-            case 'Medic':
-                document.getElementById("medicinput").style.display = 'block';                
-                break;
-            case 'Receptionist':
-            document.getElementById("medicinput").style.display = 'none';                
-            break;
-            case 'Collection':
-            document.getElementById("medicinput").style.display = 'none';                
-            break;           
-            default:
-                document.getElementById("medicinput").style.display = 'none';
-            }
-        }      
+            
 	</script>        

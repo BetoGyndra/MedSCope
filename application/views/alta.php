@@ -10,6 +10,7 @@
                  <!-- inicia card body-->
                  <div class="row">
                      <div class="col-12">
+                         
                          <button class="btn btn-success float-right"  data-toggle="modal"
                              data-target="#modalAlta"><i class="icon  wb-user-add white" aria-hidden="true"></i>Nuevo</button>
                      </div>
