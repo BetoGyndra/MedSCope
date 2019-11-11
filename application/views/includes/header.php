@@ -439,7 +439,7 @@ th {
         <li class="site-menu-item has-sub">
           <a href="javascript:;">
                   <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                  <span class="site-menu-title">Altas</span>
+                  <span class="site-menu-title">Alta</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
@@ -449,7 +449,7 @@ th {
               </a>
             </li>            
             <li class="site-menu-item">
-              <a class="animsition-link" href="<?=base_url('index.php/alta');?>">
+              <a class="animsition-link" href="<?=base_url('index.php/especial');?>">
                 <span class="site-menu-title">Especialidades</span>
               </a>
             </li>
@@ -472,7 +472,7 @@ th {
                 <span class="site-menu-title">Fechas no Atencion</span>
               </a>
             </li>
-            
+            <!--
             <li class="site-menu-item has-sub">
               <a href="javascript:void(0)">
                 <span class="site-menu-title">Editors</span>
@@ -495,193 +495,29 @@ th {
                   </a>
                 </li>
               </ul>
-            </li>            
+            </li> 
+            -->           
           </ul>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-                  <i class="site-menu-icon wb-table" aria-hidden="true"></i>
-                  <span class="site-menu-title">Gestiones</span>
-                          <span class="site-menu-arrow"></span>
-              </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/basic.html">
-                <span class="site-menu-title">Especialidades</span>
-              </a>
-            </li>            
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/jqtabledit.html">
-                <span class="site-menu-title">Jquery Tabledit</span>
-                <div class="site-menu-label">
-                  <span class="badge badge badge-info badge-round">new</span>
-                </div>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../tables/table-dragger.html">
-                <span class="site-menu-title">Table Dragger</span>
-                <div class="site-menu-label">
-                  <span class="badge badge badge-warning badge-round">new</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </li>
+        </li>        
         <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-pie-chart" aria-hidden="true"></i>
                   <span class="site-menu-title">Reportes</span>
                           <span class="site-menu-arrow"></span>
               </a>
-          <ul class="site-menu-sub">
+          <ul class="site-menu-sub">            
             <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/chartjs.html">
-                <span class="site-menu-title">Chart.js</span>
+              <a class="animsition-link" href="">
+                <span class="site-menu-title">Reporte</span>
               </a>
             </li>
             <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/gauges.html">
-                <span class="site-menu-title">Gauges</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/flot.html">
-                <span class="site-menu-title">Flot</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/peity.html">
-                <span class="site-menu-title">Peity</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/sparkline.html">
-                <span class="site-menu-title">Sparkline</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/morris.html">
-                <span class="site-menu-title">Morris</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/chartist.html">
-                <span class="site-menu-title">Chartist.js</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/rickshaw.html">
-                <span class="site-menu-title">Rickshaw</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/pie-progress.html">
-                <span class="site-menu-title">Pie Progress</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../charts/c3.html">
-                <span class="site-menu-title">C3</span>
+              <a class="animsition-link" href="">
+                <span class="site-menu-title">Avisos</span>
               </a>
             </li>
           </ul>
-        </li>
-        <li class="site-menu-item has-sub">
-          <a href="javascript:void(0)">
-                  <i class="site-menu-icon wb-grid-4" aria-hidden="true"></i>
-                  <span class="site-menu-title">Apps</span>
-                          <span class="site-menu-arrow"></span>
-              </a>
-          <ul class="site-menu-sub">
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/contacts/contacts.html">
-                <span class="site-menu-title">Contacts</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/calendar/calendar.html">
-                <span class="site-menu-title">Calendar</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/notebook/notebook.html">
-                <span class="site-menu-title">Notebook</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/taskboard/taskboard.html">
-                <span class="site-menu-title">Taskboard</span>
-              </a>
-            </li>
-            <li class="site-menu-item has-sub">
-              <a href="javascript:void(0)">
-                <span class="site-menu-title">Documents</span>
-                <span class="site-menu-arrow"></span>
-              </a>
-              <ul class="site-menu-sub">
-                <li class="site-menu-item">
-                  <a class="animsition-link" href="../apps/documents/articles.html">
-                    <span class="site-menu-title">Articles</span>
-                  </a>
-                </li>
-                <li class="site-menu-item">
-                  <a class="animsition-link" href="../apps/documents/categories.html">
-                    <span class="site-menu-title">Categories</span>
-                  </a>
-                </li>
-                <li class="site-menu-item">
-                  <a class="animsition-link" href="../apps/documents/article.html">
-                    <span class="site-menu-title">Article</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/forum/forum.html">
-                <span class="site-menu-title">Forum</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/message/message.html">
-                <span class="site-menu-title">Message</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/projects/projects.html">
-                <span class="site-menu-title">Projects</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/mailbox/mailbox.html">
-                <span class="site-menu-title">Mailbox</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/media/overview.html">
-                <span class="site-menu-title">Media</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/work/work.html">
-                <span class="site-menu-title">Work</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/location/location.html">
-                <span class="site-menu-title">Location</span>
-              </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="../apps/travel/travel.html">
-                <span class="site-menu-title">Travel</span>
-                <div class="site-menu-label">
-                  <span class="badge badge-info badge-round">new</span>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </li>
+        </li>        
       </ul></div>    <div class="site-gridmenu">
       <div>
         <div>

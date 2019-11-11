@@ -1,7 +1,6 @@
  <!-- Page -->
  <div class="page">
      <div class="page-content">
-
          <div class="panel panel-primary gradient01">
          <div class="panel-heading">
             <h3 class="panel-title">Alta de usuarios</h3>
@@ -45,7 +44,7 @@
 
      </div>
  </div>
-
+ 
  <div class="modal fade" tabindex="-1" role="dialog" id="modalAlta">
      <div class="modal-dialog modal-lg" role="document">
          <div class="modal-content">
@@ -478,7 +477,7 @@
 			});            
            
 		}
-        //codigo para ocultar campo cuando cambie un comboBox
+        //codigo para hacer dinamico el combo box dependiendo el tipo de usuario;
         var choice_combo = document.getElementById('typeUser');
         choice_combo.onchange = function() {
             switch (this.value) {
