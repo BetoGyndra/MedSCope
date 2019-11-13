@@ -12,7 +12,7 @@
 
     <!-- Core  -->
     <script src="<?=base_url('src/classic/global/vendor/babel-external-helpers/babel-external-helpers.js');?>"></script>
-    <script src="<?=base_url('src/classic/global/vendor/jquery/jquery.js');?>"></script>
+    <!--<script src="<?=base_url('src/classic/global/vendor/jquery/jquery.js');?>"></script>-->
     <script src="<?=base_url('src/classic/global/vendor/popper-js/umd/popper.min.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/bootstrap/bootstrap.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/animsition/animsition.js');?>"></script>

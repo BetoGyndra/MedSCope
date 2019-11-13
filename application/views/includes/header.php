@@ -13,7 +13,7 @@
         
     
     <link rel="apple-touch-icon" href="<?=base_url('src/classic/mmenu/assets/images/apple-touch-icon.png');?>">
-    <link rel="shortcut icon" href="<?=base_url('src/classic/mmenu/assets/images/favicon.ico');?>">
+    <link rel="shortcut icon" href="<?=base_url('src/img/medscope3.png');?>">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<?=base_url('src/classic/global/css/bootstrap.min.css');?>">
@@ -68,6 +68,16 @@
       Breakpoints();
     </script>
     <style>
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 28px;
+    height: 35px;
+  
+}
+
     .page {background-color: #dfdfdf;} 
     .modal-footer {background-color: #21292e;}    
     .panel-body {
@@ -89,9 +99,7 @@ th {
   text-align: center;  
   }
 
-  .black{
-    color: #000000;
-  }
+  
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
@@ -124,8 +132,8 @@ th {
           <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-          <img class="navbar-brand-logo" style="width:33px; height:36px" src="<?=base_url('src/img/medscope3.png');?>" title="">
-          <span class="navbar-brand-text hidden-xs-down black">Medscope</span>
+          <img class="navbar-brand-logo center"  src="<?=base_url('src/img/medscope3.png');?>" title="">
+          <span class="navbar-brand-text hidden-xs-down">Medscope</span>
         </div>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search"
           data-toggle="collapse">

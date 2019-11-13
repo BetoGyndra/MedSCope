@@ -205,20 +205,6 @@ body {
 
 
                             <div id="formschedule">
-                            <input type="text" name="day-1-start" id="day-1-start"/>
-                            <input type="text" name="day-1-end" id="day-1-end"/>
-                            <input type="text" name="day-2-start" id="day-2-start"/>
-                            <input type="text" name="day-2-end" id="day-2-end"/>
-                            <input type="text" name="day-3-start" id="day-3-start"/>
-                            <input type="text" name="day-3-end" id="day-3-end"/>
-                            <input type="text" name="day-4-start" id="day-4-start"/>
-                            <input type="text" name="day-4-end" id="day-4-end"/>
-                            <input type="text" name="day-5-start" id="day-5-start"/>
-                            <input type="text" name="day-5-end" id="day-5-end"/>
-                            <input type="text" name="day-6-start" id="day-6-start"/>
-                            <input type="text" name="day-6-end" id="day-6-end"/>
-                            <input type="text" name="day-7-start" id="day-7-start"/>
-                            <input type="text" name="day-7-end" id="day-7-end"/>
                             </div>
 
                              </div> 
@@ -259,7 +245,7 @@ $(".range-slider").slider({
     
     if ($rangecheck.is(':checked')) {
       $rangeday.removeClass('range-day-disabled');
-      // $rangeslider.slider('enable');
+      $rangeslider.slider('enable');
       
       if (ui!==undefined) {
         var val0 = ui.values[0],
@@ -286,7 +272,7 @@ $(".range-slider").slider({
       
       rangeTimes[rangeday_d] = [];
       
-      $rangetime.text('Closed');
+      $rangetime.text('00:00-00:00');
       
     }
 	}
@@ -305,7 +291,6 @@ $(".range-slider").slider({
     var $rangecheck = $(this);
     var $rangeslider = $rangecheck.closest('.range-day').find('.range-slider');
     slideTime({target:$rangeslider});
-   
   });
 
 	$("#Submit").on('click');
@@ -319,17 +304,253 @@ slideTime({target:$('#range-slider-6')});
 slideTime({target:$('#range-slider-7')}); 
 
 
-$(document).on('submit','#formhorarios',function(){
-  var $range1 =  $("#range-time-1").html();  
-  var $range2 =  $("#range-time-2").html();  
-  var $range3 =  $("#range-time-3").html();  
-  var $range4 =  $("#range-time-4").html();  
-  var $range5 =  $("#range-time-5").html();  
-  var $range6 =  $("#range-time-6").html();  
-  var $range7 =  $("#range-time-7").html();  
-    
-});
+$(function() {
+  /*
+			var _action = "new";//new,uptdate,read,delete
+			let _table =$('.table').DataTable({
+				"ajax" : {
+					"url" : "http://localhost/MSC_services/index.php/schedule/api/scheduleV",
+					"dataSrc" : "data"
+                },              
+				"columns" : [
+					{"data" : "idSchedule", "defaultContent" : ""},
+                    {"data" : "namePerson", "defaultContent" : ""},
+                    {"data" : "lastnamePerson", "defaultContent" : ""},
+                    {"data" : "Lunes", "defaultContent" : ""},                    
+                    {"data" : "Martes", "defaultContent" : ""},
+                    {"data" : "Miercoles", "defaultContent" : ""},
+                    {"data" : "Jueves", "defaultContent" : ""},
+                    {"data" : "Viernes", "defaultContent" : ""},
+                    {"data" : "Sabado", "defaultContent" : ""},
+                    {"data" : "Domingo", "defaultContent" : ""},
+                    {"data" : "creationDate", "defaultContent" : ""},
+                    {"data" : "lastMod", "defaultContent" : ""},
+                    {"data" : null, "defaultContent" : "<button class='btn btn-info btn-sm mx-2 btn-custom-action' data-action='consulta' title='Mas datos'><i class='icon  wb-order white' aria-hidden='true'></button>"},
+					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action' data-action='delete' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
+				], 
+				"columnDefs" : [
+					{"orderable" : false, "width" : "10%", "targets": -1}
+				]
+			});
 
+            $(document).find('#fkUsers_cli').each(function(){
+				$.ajax({
+					"url":"http://localhost/tickets2_services/index.php/usuarios_cli/api/usersCli",
+					"method":"get",
+					"success": function(response){
+						if (response.status=="success"){
+							$.each(response.data,function(key,value){
+								$('#fkUsers_cli').append('<option value="'+value.users_cliId+'">'+value.users_cliExt+'</option>');
+							});
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+			});
+*/
+			$(document).on('submit','#formschedule',function(event){
+        var range1 =  $("#range-time-1").html();  
+        var range2 =  $("#range-time-2").html();  
+        var range3 =  $("#range-time-3").html();  
+        var range4 =  $("#range-time-4").html();  
+        var range5 =  $("#range-time-5").html();  
+        var range6 =  $("#range-time-6").html();  
+        var range7 =  $("#range-time-7").html();  
+          
+        $('#formschedule').append('<input type="text"name="lunes"id="lunes"value="'+range1+'"/><input type="text"name="martes"id="martes"value="'+range2+'"/><input type="text"name="miercoles"id="miercoles"value="'+range3+'"/><input type="text"name="jueves"id="jueves"value="'+range4+'"/><input type="text"name="viernes"id="viernes"value="'+range5+'"/><input type="text"name="sabado"id="sabado"value="'+range6+'"/><input type="text"name="domingo"id="domingo"value="'+range7+'"/>');
+				event.preventDefault();
+				limpiarCampos('formschedule');
+				var permiteEnviar = false;
+				var uri="http://localhost/MSC_services/index.php/schedule/api/schedule";
+				var method ="get";
+				switch(_action){
+					case 'new':
+						permiteEnviar = true;
+						var uri="http://localhost/MSC_services/index.php/schedule/api/schedule";
+						method="post";
+						break;
+					case 'update':
+						permiteEnviar = true;
+						var uri="http://localhost/MSC_services/index.php/schedule/api/schedule/id/"+$(document).find('#idSchedule').val();
+						method="put";
+                        break;
+                    case 'consulta':
+						permiteEnviar = false;
+						var uri="http://localhost/MSC_services/index.php/schedule/api/schedule/id/"+$(document).find('#idSchedule').val();
+						method="get";
+						break;					
+					case 'default':
+						permiteEnviar = false;
+						break;
+				}
+				if(permiteEnviar){
+					$.ajax({
+					"url" : uri,
+					"method" : method,
+					"data" : $('#formAlta').serialize(),
+					"success" : function(response){
+						if (response.status=="success") {
+							_table.ajax.reload();
+							$('#modalAlta').modal('hide');
+              $(".modal-backdrop").remove();
+						}else if(response.status=="error"){
+							$.each(response.validations,function(key,message){
+								//console.info(key+":"+message);
+								$(document).find('#formAlta').find('#'+key).addClass('is-invalid');
+								$(document).find('#formAlta').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
+							});
+						}else{
+
+						}
+					},
+					"error" : function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+
+				}
+				
+			});
+
+      $('.table tbody').on('click','.btn-custom-action',function(){
+				var row = $(this).closest('tr');
+				var data = _table.row(row).data();
+				_action = $(this).attr('data-action');				
+				$.ajax({
+					"url":"http://localhost/MSC_services/index.php/Alta/api/alta/id/"+data.idPerson,
+					"method":"get",
+					"success":function(response){
+						if(response.status=="success"){
+							$('#modalAlta').modal('show');
+							$.each(response.data,function(key,value){
+								$('#formAlta').find('#'+key).val(value);                                 
+                                $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
+							});
+							$('#formAlta').append('<input type="hidden" id="idPerson" value="'+data.idPerson+'"/>');
+
+                            
+                           
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+					
+				});
+				switch(_action){
+					case 'update':
+					$(document).find('#titleModal').text('Actualizar Registro');
+					$(document).find('#titleSubmit').text('Actualizar');  
+                    $('#formAlta').find('input').each(function(){
+                       $(this).removeClass('empty');
+                    });
+                    /*$(document).find('input,select').on('change',function(){     
+                        alert(1);                  
+                        $('#formAlta').each('input,select',function(){
+                            alert(1);
+                            $(this).removeClass('empty');
+                        });
+                     });*/			                
+						break;
+
+					case 'delete':
+					$(document).find('#titleModal').text('Borrar Ticket');
+					$(document).find('#titleSubmit').text('Borrar');
+					$(document).find('#formTickets').find('input,select').each(function(){				
+						$(this).prop('disabled','disabled');						
+					});
+						break;
+
+					default:
+
+						break;
+
+					}
+			});
+
+			$('#modalAlta').on('hidden.bs.modal',function(){
+				$(document).find('#formAlta').find('input').each(function(){
+				$(this).removeClass('is-invalid');
+				$(this).closest('.form-group').find('.invalid-feedback').remove();
+				$(this).val('');
+				$(document).find('#id').remove();
+				_action = "new";
+				$(document).find('#titleModal').text('Registrar Persona');
+				$(document).find('#titleSubmit').text('Guardar');
+				$(document).find('#formAlta').find('input,select').each(function(){
+			//$(document).find('#formClientes').find('input','select','textArea').each(function(){
+				$(this).prop('disabled','');
+
+					});
+				});
+
+			});
+		});		
+
+		function limpiarCampos(idForm){
+			$(document).find('#'+idForm).find('input,select').each(function(){
+				$(this).removeClass('is-invalid');
+				$(this).closest('.form-group').find('.invalid-feedback').remove();
+			});            
+           
+		}
+
+/*
+$(document).on('submit','#formhorarios',function(){
+  event.preventDefault();
+  var range1 =  $("#range-time-1").html();  
+  var range2 =  $("#range-time-2").html();  
+  var range3 =  $("#range-time-3").html();  
+  var range4 =  $("#range-time-4").html();  
+  var range5 =  $("#range-time-5").html();  
+  var range6 =  $("#range-time-6").html();  
+  var range7 =  $("#range-time-7").html();  
+    
+  $('#formschedule').append('<input type="text"name="lunes"id="lunes"value="'+range1+'"/><input type="text"name="martes"id="martes"value="'+range2+'"/><input type="text"name="miercoles"id="miercoles"value="'+range3+'"/><input type="text"name="jueves"id="jueves"value="'+range4+'"/><input type="text"name="viernes"id="viernes"value="'+range5+'"/><input type="text"name="sabado"id="sabado"value="'+range6+'"/><input type="text"name="domingo"id="domingo"value="'+range7+'"/>');
+
+    
+    var $1start = range1.split("-")[0];
+    var $1end = range1.split("-")[1];
+    $('#formschedule').append('<input type="text"name="day-1-start"id="day-1-start"value="'+$1start+'"/><input type="text"name="day-1-end" id="day-1-end"value="'+$1end+'"/>');
+
+    var $2start = range2.split("-")[0];
+    var $2end = range2.split("-")[1];
+    $('#formschedule').append('<input type="text"name="day-2-start"id="day-2-start"value="'+$2start+'"/><input type="text"name="day-2-end" id="day-2-end"value="'+$2end+'"/>');
+
+    var $3start = range3.split("-")[0];
+    var $3end = range3.split("-")[1];
+
+    $('#formschedule').append('<input type="text"name="day-3-start"id="day-3-start"value="'+$3start+'"/><input type="text" name="day-3-end"id="day-3-end"value="'+$3end+'"/>');
+
+    var $4start = range4.split("-")[0];
+    var $4end = range4.split("-")[1];
+
+    $('#formschedule').append('<input type="text"name="day-4-start"id="day-4-start"value="'+$4start+'"/><input type="text" name="day-4-end"id="day-4-end"value="'+$4end+'"/>');
+
+    var $5start = range5.split("-")[0];
+    var $5end = range5.split("-")[1];
+
+    $('#formschedule').append('<input type="text"name="day-5-start"id="day-5-start"value="'+$5start+'"/><input type="text"name="day-5-end" id="day-5-end"value="'+$5end+'"/>');
+
+    var $6start = range6.split("-")[0];
+    var $6end = range6.split("-")[1];
+
+    $('#formschedule').append('<input type="text"name="day-6-start"id="day-6-start"value="'+$6start+'"/><input type="text"name="day-6-end" id="day-6-end"value="'+$6end+'"/>');
+
+    var $7start = range7.split("-")[0];
+    var $7end = range7.split("-")[1];
+
+    $('#formschedule').append('<input type="text"name="day-7-start"id="day-7-start"value="'+$7start+'"/><input type="text"name="day-7-end" id="day-7-end"value="'+$7end+'"/>');
+    
+
+
+    //$('#formschedule').empty();
+        
+});
+    */
+    
       var choice_combo = document.getElementById('Empleado');
         choice_combo.onchange = function() {            
                 document.getElementById("rangos").style.display = 'block';                
