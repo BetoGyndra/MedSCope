@@ -413,6 +413,8 @@
                                 $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
 							});
 							$('#formAlta').append('<input type="hidden" id="idPerson" value="'+data.idPerson+'"/>');
+
+                            
                            
 						}
 					},

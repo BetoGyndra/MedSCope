@@ -15,20 +15,9 @@
                      </div>
 				 </div>
 
-				 <div class="toast"  style="display: none;" id="toastersuccess" name="toastersuccess" aria-live="polite"    		data-plugin="toastr"
-                      
-                      data-container-id="toast-top-right" data-position-class="toast-top-right"
-                      data-icon-class="toast-just-text toast-success toast-shadow"
-                      role="alert">
-                      <div class="toast toast-just-text toast-shadow toast-success">
-                        <button type="button" class="toast-close-button" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                        <div class="toast-message">							
-                          </div>
-                      </div>
-					</div>
-					
+				<div id="divtoast">
+				 
+				</div>
 					
 				<div class="row my-3">
 					<div class="col-12">
@@ -56,6 +45,7 @@
                                                 
             </div>
             </div>
+	
 
 			<div class="modal fade" tabindex="-1" role="dialog" id="modalEspecial">
      <div class="modal-dialog modal-lg" role="document">
@@ -118,6 +108,8 @@
  </div>
  </div> 
 
+
+ 
 
  <div class="modal fade" tabindex="-1" role="dialog" id="modalstatus">
      <div class="modal-dialog modal-sm" role="document">
@@ -237,15 +229,14 @@
 					"success" : function(response){
 						if (response.status=="success") {
 							
-							var mensaje = response.message;
-							$('#toastersuccess').prop("data-message", mensaje);
-							$('#toastersuccess').click();	
+						var mensaje = response.message;														
+						$(document).find('#divtoast').append('<div class="toast"style="display:none"id="toastersuccess"name="toastersuccess"data-message="'+mensaje+'"aria-live="polite"data-plugin="toastr"data-container-id="toast-top-right"data-position-class="toast-top-right"data-icon-class="toast-just-text toast-success toast-shadow"role="alert"><div class="toast toast-just-text toast-shadow toast-success"><button type="button"class="toast-close-button"aria-label="Close"><span aria-hidden="true">×</span></button><div class="toast-message"></div></div></div>');
+						$('#toastersuccess').click();	
 
-							_table.ajax.reload();
-							$('#modalEspecial').modal('hide');
-                            $(".modal-backdrop").remove();
+						_table.ajax.reload();
+						$('#modalEspecial').modal('hide');
+						$(".modal-backdrop").remove();
 						}else if(response.status=="error"){
-
 
 							$.each(response.validations,function(key,message){								
 								//console.info(key+":"+message);

@@ -7,7 +7,7 @@
     <meta name="description" content="bootstrap admin template">
     <meta name="author" content="">
     
-    <title>admin | MedSCope</title>
+    <title>Admin | MedSCope</title>
 
     
         

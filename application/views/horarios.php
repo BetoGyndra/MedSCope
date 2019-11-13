@@ -195,7 +195,7 @@ body {
                             </div>
                             
                             <div class="range-day" id="range-day-7" data-day="7">
-                                <input type="checkbox" name="day-7" id="day-7" value="1" class="range-checkbox">
+                                <input type="checkbox" name="day-7" id="day-7" value="1" class="range-checkbox" checked>
                                 <label for="day-7" class="range-label">Domingos:</label>  
                                 <div id="range-slider-7" class="range-slider"></div>
                                 <span id="range-time-7" class="range-time"></span>
@@ -203,6 +203,23 @@ body {
                             
                             </div>
 
+
+                            <div id="formschedule">
+                            <input type="text" name="day-1-start" id="day-1-start"/>
+                            <input type="text" name="day-1-end" id="day-1-end"/>
+                            <input type="text" name="day-2-start" id="day-2-start"/>
+                            <input type="text" name="day-2-end" id="day-2-end"/>
+                            <input type="text" name="day-3-start" id="day-3-start"/>
+                            <input type="text" name="day-3-end" id="day-3-end"/>
+                            <input type="text" name="day-4-start" id="day-4-start"/>
+                            <input type="text" name="day-4-end" id="day-4-end"/>
+                            <input type="text" name="day-5-start" id="day-5-start"/>
+                            <input type="text" name="day-5-end" id="day-5-end"/>
+                            <input type="text" name="day-6-start" id="day-6-start"/>
+                            <input type="text" name="day-6-end" id="day-6-end"/>
+                            <input type="text" name="day-7-start" id="day-7-start"/>
+                            <input type="text" name="day-7-end" id="day-7-end"/>
+                            </div>
 
                              </div> 
                              </div>                             
@@ -220,9 +237,6 @@ body {
 	</div>
 </div>
 
-
-
-  
 <script>
 var rangeTimes = [];
 $(".range-slider").slider({
@@ -245,7 +259,7 @@ $(".range-slider").slider({
     
     if ($rangecheck.is(':checked')) {
       $rangeday.removeClass('range-day-disabled');
-      $rangeslider.slider('enable');
+      // $rangeslider.slider('enable');
       
       if (ui!==undefined) {
         var val0 = ui.values[0],
@@ -266,12 +280,14 @@ $(".range-slider").slider({
       $rangetime.text(rangeTimes[rangeday_d][0] + ' - ' + rangeTimes[rangeday_d][1]);
       
     } else {
+     
       $rangeday.addClass('range-day-disabled');
       $rangeslider.slider('disable');
       
       rangeTimes[rangeday_d] = [];
       
       $rangetime.text('Closed');
+      
     }
 	}
  
@@ -292,7 +308,7 @@ $(".range-slider").slider({
    
   });
 
-	$("#scheduleSubmit").on('click');
+	$("#Submit").on('click');
 
 slideTime({target:$('#range-slider-1')});
 slideTime({target:$('#range-slider-2')});
@@ -300,10 +316,19 @@ slideTime({target:$('#range-slider-3')});
 slideTime({target:$('#range-slider-4')});
 slideTime({target:$('#range-slider-5')});
 slideTime({target:$('#range-slider-6')});
-slideTime({target:$('#range-slider-7')});
+slideTime({target:$('#range-slider-7')}); 
 
 
-
+$(document).on('submit','#formhorarios',function(){
+  var $range1 =  $("#range-time-1").html();  
+  var $range2 =  $("#range-time-2").html();  
+  var $range3 =  $("#range-time-3").html();  
+  var $range4 =  $("#range-time-4").html();  
+  var $range5 =  $("#range-time-5").html();  
+  var $range6 =  $("#range-time-6").html();  
+  var $range7 =  $("#range-time-7").html();  
+    
+});
 
       var choice_combo = document.getElementById('Empleado');
         choice_combo.onchange = function() {            
