@@ -47,29 +47,20 @@ body {
             </div>
             <br>
              <div class="panel-body">  
-                 <!-- Site Action -->
-    <div class="site-action" data-plugin="actionBtn">
-      <button type="button" data-toggle="modal" data-target="#modalhorarios" class="site-action-toggle btn-raised btn btn-success btn-floating">
-        <i class="front-icon wb-plus animation-scale-up" aria-hidden="true"></i>
-        <i class="back-icon wb-trash animation-scale-up" aria-hidden="true"></i>
-      </button>
+                 <!-- Site Action -->    
+
+    <div class="row">
+                     <div class="col-12">
+                         
+                         <button class="btn btn-success float-right"  data-toggle="modal"
+                             data-target="#modalhorarios"><i class="icon  wb-calendar white" aria-hidden="true"></i>Nuevo</button>
+                     </div>
     </div>
     <!-- End Site Action -->          	             
-  <br>
   
-  
-  <div class="toast"  style="display: none;" id="toastersuccess" name="toastersuccess" aria-live="polite"   data-plugin="toastr"
-                      
-                      data-container-id="toast-top-right" data-position-class="toast-top-right"
-                      data-icon-class="toast-just-text toast-success toast-shadow"
-                      role="alert">
-                      <div class="toast toast-just-text toast-shadow toast-success">
-                        <button type="button" class="toast-close-button" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                        <div class="toast-message">							
-                          </div>
-                      </div>
+  <div id="divtoast">
+				 
+				</div>
 					</div>
 					
 					
@@ -79,14 +70,15 @@ body {
 							<thead>
 								<tr>
 									<th>#</th>
-                                    <th>Nombre</th>
-									<th>Apellido</th>
-                                    <th>Tipo de empleado</th>
-                                    <th>Horario</th>
-									<th>Status</th>
-									<th>Creación</th>
-                                    <th>Modificación</th>								
-									<th>Options</th>
+                  <th>Empleado</th>								
+                  <th>Lunes</th>
+                  <th>Martes</th>
+									<th>Miercoles</th>
+									<th>Jueves</th>
+                  <th>Viernes</th>								
+									<th>Sabado</th>
+                  <th>Domingo</th>																
+									<th>Options</th>                  
 								</tr>
 							</thead>
 							<tbody>							       
@@ -121,21 +113,20 @@ body {
                          <h3 class="panel-title">Configurar</h3>
                      </div>
                      <div class="panel-body container-fluid border">
-                         
+                     <div id="formschedule">
+                            
                              <br>
                              <div class="col-lg-6">
                              <div class="form-group form-material floating" data-plugin="formMaterial">
                              <label class="form-control-label" for="Empleado">Empleado</label>
                                 <select class="form-control" id="Empleado" name="Empleado">
-                                    <option selected disabled>Seleccione</option>
-                                    <option value="medico">medico</option>                    
+                                    <option selected disabled>Seleccione</option>                                                       
                                 </select>
                              </div>
                              </div>
                              <div class="col-lg-12">
-                             <div class="row">
-
-                            
+                             <div class="row">                       
+                             </div>
 
                             <div id="rangos" style="display: none;">
                              <div class="range-head">
@@ -201,16 +192,9 @@ body {
                                 <span id="range-time-7" class="range-time"></span>
                             </div>
                             
-                            </div>
-
-
-                            <div id="formschedule">
-                            </div>
-
+                            </div>                      
                              </div> 
-                             </div>                             
-                            
-                                              
+                             </div>                                                                                                       
                         </div>
                  </div>                                 
 			</div>     
@@ -305,7 +289,7 @@ slideTime({target:$('#range-slider-7')});
 
 
 $(function() {
-  /*
+  
 			var _action = "new";//new,uptdate,read,delete
 			let _table =$('.table').DataTable({
 				"ajax" : {
@@ -313,34 +297,30 @@ $(function() {
 					"dataSrc" : "data"
                 },              
 				"columns" : [
-					{"data" : "idSchedule", "defaultContent" : ""},
-                    {"data" : "namePerson", "defaultContent" : ""},
-                    {"data" : "lastnamePerson", "defaultContent" : ""},
-                    {"data" : "Lunes", "defaultContent" : ""},                    
-                    {"data" : "Martes", "defaultContent" : ""},
-                    {"data" : "Miercoles", "defaultContent" : ""},
-                    {"data" : "Jueves", "defaultContent" : ""},
-                    {"data" : "Viernes", "defaultContent" : ""},
-                    {"data" : "Sabado", "defaultContent" : ""},
-                    {"data" : "Domingo", "defaultContent" : ""},
-                    {"data" : "creationDate", "defaultContent" : ""},
-                    {"data" : "lastMod", "defaultContent" : ""},
-                    {"data" : null, "defaultContent" : "<button class='btn btn-info btn-sm mx-2 btn-custom-action' data-action='consulta' title='Mas datos'><i class='icon  wb-order white' aria-hidden='true'></button>"},
+				          	{"data" : "idSchedule", "defaultContent" : ""},
+                    {"data" : "namePerson", "defaultContent" : ""},                    
+                    {"data" : "lunes", "defaultContent" : ""},                    
+                    {"data" : "martes", "defaultContent" : ""},
+                    {"data" : "miercoles", "defaultContent" : ""},
+                    {"data" : "jueves", "defaultContent" : ""},
+                    {"data" : "viernes", "defaultContent" : ""},
+                    {"data" : "sabado", "defaultContent" : ""},
+                    {"data" : "domingo", "defaultContent" : ""},                                     
 					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action' data-action='delete' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
 				], 
 				"columnDefs" : [
 					{"orderable" : false, "width" : "10%", "targets": -1}
 				]
 			});
-
-            $(document).find('#fkUsers_cli').each(function(){
+//llenado de comboboxa
+            $(document).find('#Empleado').each(function(){
 				$.ajax({
-					"url":"http://localhost/tickets2_services/index.php/usuarios_cli/api/usersCli",
+					"url":"http://localhost/MSC_services/index.php/alta/api/employeeV",
 					"method":"get",
 					"success": function(response){
 						if (response.status=="success"){
 							$.each(response.data,function(key,value){
-								$('#fkUsers_cli').append('<option value="'+value.users_cliId+'">'+value.users_cliExt+'</option>');
+								$('#Empleado').append('<option value="'+value.idPerson+'">'+value.namePerson+' '+value.lastnamePerson +'</option>');
 							});
 						}
 					},
@@ -349,8 +329,9 @@ $(function() {
 					}
 				});
 			});
-*/
-			$(document).on('submit','#formschedule',function(event){
+
+			$(document).on('submit','#formhorarios',function(event){
+        event.preventDefault();
         var range1 =  $("#range-time-1").html();  
         var range2 =  $("#range-time-2").html();  
         var range3 =  $("#range-time-3").html();  
@@ -360,8 +341,8 @@ $(function() {
         var range7 =  $("#range-time-7").html();  
           
         $('#formschedule').append('<input type="text"name="lunes"id="lunes"value="'+range1+'"/><input type="text"name="martes"id="martes"value="'+range2+'"/><input type="text"name="miercoles"id="miercoles"value="'+range3+'"/><input type="text"name="jueves"id="jueves"value="'+range4+'"/><input type="text"name="viernes"id="viernes"value="'+range5+'"/><input type="text"name="sabado"id="sabado"value="'+range6+'"/><input type="text"name="domingo"id="domingo"value="'+range7+'"/>');
-				event.preventDefault();
-				limpiarCampos('formschedule');
+				
+				limpiarCampos('formhorarios');
 				var permiteEnviar = false;
 				var uri="http://localhost/MSC_services/index.php/schedule/api/schedule";
 				var method ="get";
@@ -389,17 +370,22 @@ $(function() {
 					$.ajax({
 					"url" : uri,
 					"method" : method,
-					"data" : $('#formAlta').serialize(),
+					"data" : $('#formhorarios').serialize(),
 					"success" : function(response){
 						if (response.status=="success") {
+
+            var mensaje = response.message;		            										
+						$(document).find('#divtoast').append('<div class="toast"style="display:none"id="toastersuccess"name="toastersuccess"data-message="'+mensaje+'"aria-live="polite"data-plugin="toastr"data-container-id="toast-top-right"data-position-class="toast-top-right"data-icon-class="toast-just-text toast-success toast-shadow"role="alert"><div class="toast toast-just-text toast-shadow toast-success"><button type="button"class="toast-close-button"aria-label="Close"><span aria-hidden="true">×</span></button><div class="toast-message"></div></div></div>');
+
+						$('#toastersuccess').click();
 							_table.ajax.reload();
-							$('#modalAlta').modal('hide');
+							$('#modalhorarios').modal('hide');
               $(".modal-backdrop").remove();
 						}else if(response.status=="error"){
 							$.each(response.validations,function(key,message){
 								//console.info(key+":"+message);
-								$(document).find('#formAlta').find('#'+key).addClass('is-invalid');
-								$(document).find('#formAlta').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
+								$(document).find('#formhorarios').find('#'+key).addClass('is-invalid');
+								$(document).find('#formhorarios').find('#'+key).closest('.form-group').append('<div class="invalid-feedback">'+message+'</div>');
 							});
 						}else{
 
@@ -419,16 +405,16 @@ $(function() {
 				var data = _table.row(row).data();
 				_action = $(this).attr('data-action');				
 				$.ajax({
-					"url":"http://localhost/MSC_services/index.php/Alta/api/alta/id/"+data.idPerson,
+					"url":"http://localhost/MSC_services/index.php/alta/api/employeeV/id/"+data.idschedule,
 					"method":"get",
 					"success":function(response){
 						if(response.status=="success"){
-							$('#modalAlta').modal('show');
+							$('#modalhorarios').modal('show');
 							$.each(response.data,function(key,value){
-								$('#formAlta').find('#'+key).val(value);                                 
+								$('#formhorarios').find('#'+key).val(value);                                 
                                 $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
 							});
-							$('#formAlta').append('<input type="hidden" id="idPerson" value="'+data.idPerson+'"/>');
+							$('#formhorarios').append('<input type="hidden" id="idschedule" value="'+data.idschedule+'"/>');
 
                             
                            
@@ -443,12 +429,12 @@ $(function() {
 					case 'update':
 					$(document).find('#titleModal').text('Actualizar Registro');
 					$(document).find('#titleSubmit').text('Actualizar');  
-                    $('#formAlta').find('input').each(function(){
+                    $('#formhorarios').find('input').each(function(){
                        $(this).removeClass('empty');
                     });
                     /*$(document).find('input,select').on('change',function(){     
                         alert(1);                  
-                        $('#formAlta').each('input,select',function(){
+                        $('#formhorarios').each('input,select',function(){
                             alert(1);
                             $(this).removeClass('empty');
                         });
@@ -470,8 +456,8 @@ $(function() {
 					}
 			});
 
-			$('#modalAlta').on('hidden.bs.modal',function(){
-				$(document).find('#formAlta').find('input').each(function(){
+			$('#modalhorarios').on('hidden.bs.modal',function(){
+				$(document).find('#formhorarios').find('input').each(function(){
 				$(this).removeClass('is-invalid');
 				$(this).closest('.form-group').find('.invalid-feedback').remove();
 				$(this).val('');
@@ -479,7 +465,7 @@ $(function() {
 				_action = "new";
 				$(document).find('#titleModal').text('Registrar Persona');
 				$(document).find('#titleSubmit').text('Guardar');
-				$(document).find('#formAlta').find('input,select').each(function(){
+				$(document).find('#formhorarios').find('input,select').each(function(){
 			//$(document).find('#formClientes').find('input','select','textArea').each(function(){
 				$(this).prop('disabled','');
 

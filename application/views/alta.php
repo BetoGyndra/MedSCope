@@ -15,6 +15,10 @@
                              data-target="#modalAlta"><i class="icon  wb-user-add white" aria-hidden="true"></i>Nuevo</button>
                      </div>
                  </div>
+                 
+				<div id="divtoast">
+				 
+                 </div>
                  <div class="row my-3">
                      <div class="col-12">
                          <table class="table table-striped table-bordered " >
@@ -376,6 +380,9 @@
 					"data" : $('#formAlta').serialize(),
 					"success" : function(response){
 						if (response.status=="success") {
+                            var mensaje = response.message;														
+						$(document).find('#divtoast').append('<div class="toast"style="display:none"id="toastersuccess"name="toastersuccess"data-message="'+mensaje+'"aria-live="polite"data-plugin="toastr"data-container-id="toast-top-right"data-position-class="toast-top-right"data-icon-class="toast-just-text toast-success toast-shadow"role="alert"><div class="toast toast-just-text toast-shadow toast-success"><button type="button"class="toast-close-button"aria-label="Close"><span aria-hidden="true">×</span></button><div class="toast-message"></div></div></div>');
+						$('#toastersuccess').click();	
 							_table.ajax.reload();
 							$('#modalAlta').modal('hide');
                             $(".modal-backdrop").remove();
@@ -413,9 +420,7 @@
                                 $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
 							});
 							$('#formAlta').append('<input type="hidden" id="idPerson" value="'+data.idPerson+'"/>');
-
-                            
-                           
+                                                       
 						}
 					},
 					"error":function(xh,err,thro){

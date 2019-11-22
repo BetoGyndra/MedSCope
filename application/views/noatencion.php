@@ -16,77 +16,24 @@
     </div>
     <!-- End Site Action -->
 
-<table cellspacing="0" class="table" id="table">
-     <tbody> 
-       <tr>
-         <td class="head"><h4>Dia</h4></td>
-         <td class="head"><h4>Movito</h4></td>
-         <td class="head"><h4>Desde</h4></td>         
-       </tr> 
-       <tr><td class="month" colspan="4"><h2>Noviembre</h2></td></tr>  
-       <tr>
-        <td>7th
-        </td>
-        <td>Dia no laboral</td>
-        <td  class='old' >11:30 PM</td>
-       </tr>
-       <tr>
-        <td>9th
-        </td>
-        <td>Evento</td>
-        <td >3:30 PM</td>
-       </tr> 
-       <tr>
-        <td>10th
-        </td>
-        <td>Evento</td>
-        <td>3:30 PM</td>
-       </tr> 
-       <tr>
-        <td>11th
-        </td>
-        <td>Evento</td>
-        <td>3:30 PM</td>
-       </tr> 
-       <tr>
-        <td>12th
-        </td>
-        <td>Dia no laboral</td>
-        <td>3:30 PM</td>
-       </tr> 
-       <tr>
-        <td>16th
-        </td>
-        <td>Evento</td>
-        <td>11:30 PM</td>
-       </tr> 
-       <tr>
-        <td>29th
-        </td>
-        <td>Cystic Fibrosis Event</td>
-        <td>10:00 PM</td>
-       </tr> 
-       <tr>
-        <td>30th
-        </td>
-        <td>Evento</td>
-        <td>11:30 PM</td>
-       </tr> 
-       <tr><td class="month" colspan="4"><h2>December</h2></td></tr>    
-       <tr>
-        <td>7th
-        </td>
-        <td>No laboral</td>
-        <td>11:30 PM</td>
-       </tr>
-       <tr>
-        <td>21st
-        </td>
-        <td>No laboral</td>
-        <td>11:30 PM</td>
-       </tr>
-  </tbody>
- </table>
+    <div class="row my-3">
+					<div class="col-12">
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>#</th>
+                                     <th>Dia</th>								
+                                     <th>Motivo</th>
+                                     <th>Desde</th>																						
+									<th>Options</th>                  
+								</tr>
+							</thead>
+							<tbody>							       
+							</tbody>
+						</table>
+					</div>
+				</div>
+
     </div>
     </div>
     </div>
