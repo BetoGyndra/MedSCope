@@ -1,132 +1,28 @@
 <style>
-  /* RANGE SLIDER STYLES */
-  .range-checkbox {
-    clear: left;
-    float: left;
-    margin: 13px 10px 10px;
+ 
+  .color1{
+    color: #2980B9; 
   }
-
-  .range-label {
-    float: left;
-    display: block;
-    width: 80px;
-    margin: 10px;
-    cursor: pointer;
+  .color2{
+    color: #9B59B6; 
   }
-
-  .range-slider {
-    float: left;
-    margin: 10px;
+  .color3{
+    color: #F1C40F; 
   }
-
-  .range-time {
-    width: 100px;
-    float: left;
-    margin: 10px;
+  .color4{
+    color: #E67E22; 
   }
-
-  .range-day-disabled {
-    opacity: .5;
+  .color5{
+    color: #EC7063; 
   }
-
-  .range-day .ui-slider-range {
-    background: #00A000;
+  .color6{
+    color: #17A589; 
   }
-
-  .range-day .ui-slider-handle {
-    cursor: w-resize !important;
+  .color7{
+    color: #34495E ; 
   }
-
-  .range-day-disabled .ui-slider-range {
-    background: #fff;
-  }
-
-  .range-day-disabled .ui-slider-handle {
-    cursor: default !important;
-    background: none !important;
-    border: none !important;
-  }
-
-  .range-values {
-    position: relative;
-    display: block;
-    height: 20px;
-    overflow: hidden;
-    margin: 10px 0 10px;
-  }
-
-  .range-values span {
-    position: absolute;
-    border-left: 1px solid grey;
-    padding-left: 5px
-  }
-
-  .range-values span.r-0 {
-    left: 0
-  }
-
-  .range-values span.r-3 {
-    left: 12.5%
-  }
-
-  .range-values span.r-6 {
-    left: 25%
-  }
-
-  .range-values span.r-9 {
-    left: 37.5%
-  }
-
-  .range-values span.r-12 {
-    left: 50%
-  }
-
-  .range-values span.r-15 {
-    left: 62.5%
-  }
-
-  .range-values span.r-18 {
-    left: 75%
-  }
-
-  .range-values span.r-21 {
-    left: 87.5%
-  }
-
-  .range-values span.r-24 {
-    left: 100%;
-    margin-left: -1px;
-  }
-
-  /* RESULT DATA STYLES */
-  #schedule {
-    width: 500px;
-    background: #eee;
-    margin-top: 20px;
-  }
-
-  #schedule th {
-    text-align: left;
-    border-bottom: 1px solid grey;
-  }
-
-  #schedule th,
-  #schedule td {
-    padding: 5px;
-  }
-
-  /************ PARAMS ************/
-  body {}
-
-  .range-slider,
-  .range-values {
-    width: 400px;
-  }
-
-  .range-values,
-  #schedule,
-  h1 {
-    margin-left: 143px;
+  .color8{
+    color: #ff0000 ; 
   }
 </style>
 <!-- Page -->
@@ -169,6 +65,7 @@
                 <th>Viernes</th>
                 <th>Sabado</th>
                 <th>Domingo</th>
+                <th>status</th>
                 <th>Options</th>
               </tr>
             </thead>
@@ -188,7 +85,7 @@
 
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modalhorarios">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title" id="titleModal">Horarios</h4>
@@ -205,7 +102,7 @@
             </div>
             <div class="panel-body container-fluid border">
               <div id="formschedule">
-
+              <div id="formhorariosappend"></div>
                 <br>
                 <div class="col-lg-6">
                   <div class="form-group form-material floating" data-plugin="formMaterial">
@@ -220,69 +117,117 @@
                   </div>
 
                   <div id="rangos" style="display: none;">
-                    <div class="range-head">
-                      <div class="range-values">
-                        <span class="r-0">0:00</span>
-                        <span class="r-3">3:00</span>
-                        <span class="r-6">6:00</span>
-                        <span class="r-9">9:00</span>
-                        <span class="r-12">12:00</span>
-                        <span class="r-15">15:00</span>
-                        <span class="r-18">18:00</span>
-                        <span class="r-21">21:00</span>
-                        <span class="r-24">24:00</span>
+                  <div class="col-lg-12">
+                  <div class="row">                  
+
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="lunescheck" name="lunescheck" checked>
+                      <label class="form-check-label color1" for="Lunes">Lunes</label>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="lunes0" name="lunes" placeholder="" />                   
+                        <label class="label">Entrada</label>
                       </div>
                     </div>
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
+                    </div>                    
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="martescheck" checked>
+                      <label class="form-check-label color2" for="Martes">Martes</label>
 
-                    <div class="range-day" id="range-day-1" data-day="1">
-                      <input type="checkbox" name="day-1" id="day-1" value="1" class="range-checkbox" checked>
-                      <label for="day-1" class="range-label">Lunes:</label>
-                      <div id="range-slider-1" class="range-slider"></div>
-                      <span id="range-time-1" class="range-time"></span>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="martes0" name="martes" placeholder="" />
+                        <label class="label">Entrada</label>
+                      </div>
                     </div>
-
-                    <div class="range-day" id="range-day-2" data-day="2">
-                      <input type="checkbox" name="day-2" id="day-2" value="1" class="range-checkbox" checked>
-                      <label for="day-2" class="range-label">Martes:</label>
-                      <div id="range-slider-2" class="range-slider"></div>
-                      <span id="range-time-2" class="range-time"></span>
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="martes1" name="martes1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
                     </div>
-
-                    <div class="range-day" id="range-day-3" data-day="3">
-                      <input type="checkbox" name="day-3" id="day-3" value="1" class="range-checkbox" checked>
-                      <label for="day-3" class="range-label">Miercoles:</label>
-                      <div id="range-slider-3" class="range-slider"></div>
-                      <span id="range-time-3" class="range-time"></span>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="miercolescheck" checked>
+                      <label class="form-check-label color3" for="Miercoles">Miercoles</label>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="miercoles0" name="miercoles" placeholder="" />
+                        <label class="label">Entrada</label>
+                      </div>
                     </div>
-
-                    <div class="range-day" id="range-day-4" data-day="4">
-                      <input type="checkbox" name="day-4" id="day-4" value="1" class="range-checkbox" checked>
-                      <label for="day-4" class="range-label">Jueves:</label>
-                      <div id="range-slider-4" class="range-slider"></div>
-                      <span id="range-time-4" class="range-time"></span>
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="miercoles1" name="miercoles1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
+                    </div>                    
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="juevescheck" checked>
+                      <label class="form-check-label color4" for="Jueves">Jueves</label>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="jueves0" name="jueves" placeholder="" />
+                        <label class="label">Entrada</label>
+                      </div>
                     </div>
-
-                    <div class="range-day" id="range-day-5" data-day="5">
-                      <input type="checkbox" name="day-5" id="day-5" value="1" class="range-checkbox" checked>
-                      <label for="day-5" class="range-label">Viernes:</label>
-                      <div id="range-slider-5" class="range-slider"></div>
-                      <span id="range-time-5" class="range-time"></span>
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="jueves1" name="jueves1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
                     </div>
+                  </div>
 
-                    <div class="range-day" id="range-day-6" data-day="6">
-                      <input type="checkbox" name="day-6" id="day-6" value="1" class="range-checkbox" checked>
-                      <label for="day-6" class="range-label">Sabado:</label>
-                      <div id="range-slider-6" class="range-slider"></div>
-                      <span id="range-time-6" class="range-time"></span>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="viernescheck" checked>
+                      <label class="form-check-label color5" for="viernes">Viernes</label>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="viernes0" name="viernes" placeholder="" />
+                        <label class="label">Entrada</label>
+                      </div>
                     </div>
-
-                    <div class="range-day" id="range-day-7" data-day="7">
-                      <input type="checkbox" name="day-7" id="day-7" value="1" class="range-checkbox" checked>
-                      <label for="day-7" class="range-label">Domingos:</label>
-                      <div id="range-slider-7" class="range-slider"></div>
-                      <span id="range-time-7" class="range-time"></span>
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="viernes1" name="viernes1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
+                    </div>            
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="sabadocheck" checked>
+                      <label class="form-check-label color6" for="sabado">Sabado</label>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="sabado0" name="sabado" placeholder="" />
+                        <label class="label">Entrada</label>
+                      </div>
                     </div>
-
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="sabado1" name="sabado1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <input type="checkbox" class="form-check-input" id="domingocheck" checked>
+                      <label class="form-check-label color7" for="domingo">Domingo</label>
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="domingo0" name="domingo" placeholder="" />
+                        <label class="label">Entrada</label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group form-material floating" data-plugin="formMaterial">
+                        <input type="time" class="form-control" id="domingo1" name="domingo1" placeholder="" />
+                        <label class="label">Salida</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                   </div>
                 </div>
               </div>
@@ -312,73 +257,72 @@
         <form autocomplete="off" id="formupdatehorarios">
           <!-- End Panel Static Labels -->
           <div class="panel panel-success ">
-            <div class="panel-heading">
-              <h3 class="panel-title">Configurar</h3>
+            <div class="panel-heading">              
+              <div id="empleadodivtitle"></div>
             </div>
             <div class="panel-body container-fluid border">
               <div id="formscheduleupdate">
-
                   <br>
-
                 <div class="col-lg-12">
                   <div class="row">                  
-
+                  
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="lunescheck" checked>
-                      <label class="form-check-label" for="Lunes">Lunes</label>
+                      <input type="checkbox" class="form-check-input" id="lunescheckupdate" name="lunescheckupdate" checked>
+                      <label class="form-check-label color1" for="Lunes">Lunes</label>
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="lunes2" name="lunes2" placeholder=""/>
+                   
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="lunes3" name="lunes3" placeholder=""/>
                         <label class="label">Salida</label>
                       </div>
                     </div>                    
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="martescheck" checked>
-                      <label class="form-check-label" for="Martes">Martes</label>
+                      <input type="checkbox" class="form-check-input" id="martescheckupdate" checked>
+                      <label class="form-check-label color2" for="Martes">Martes</label>
 
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="martes2" name="martes2" placeholder="" />
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="martes3" name="martes3" placeholder="" />
                         <label class="label">Salida</label>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="miercolescheck" checked>
-                      <label class="form-check-label" for="Miercoles">Miercoles</label>
+                      <input type="checkbox" class="form-check-input" id="miercolescheckupdate" checked>
+                      <label class="form-check-label color3" for="Miercoles">Miercoles</label>
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="miercoles2" name="miercoles2" placeholder="" />
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="miercoles3" name="miercoles3" placeholder="" />
                         <label class="label">Salida</label>
                       </div>
                     </div>                    
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="juevescheck" checked>
-                      <label class="form-check-label" for="Jueves">Jueves</label>
+                      <input type="checkbox" class="form-check-input" id="juevescheckupdate" checked>
+                      <label class="form-check-label color4" for="Jueves">Jueves</label>
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="jueves2" name="jueves2" placeholder="" />
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="jueves3" name="jueves3" placeholder="" />
                         <label class="label">Salida</label>
                       </div>
                     </div>
@@ -386,46 +330,46 @@
 
                   <div class="row">
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="viernescheck" checked>
-                      <label class="form-check-label" for="viernes">Viernes</label>
+                      <input type="checkbox" class="form-check-input" id="viernescheckupdate" checked>
+                      <label class="form-check-label color5" for="viernes">Viernes</label>
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="viernes2" name="viernes2" placeholder="" />
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="viernes3" name="viernes3" placeholder="" />
                         <label class="label">Salida</label>
                       </div>
                     </div>            
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="sabadocheck" checked>
-                      <label class="form-check-label" for="sabado">Sabado</label>
+                      <input type="checkbox" class="form-check-input" id="sabadocheckupdate" checked>
+                      <label class="form-check-label color6" for="sabado">Sabado</label>
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="sabado2" name="sabado2" placeholder="" />
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="sabado3" name="sabado3" placeholder="" />
                         <label class="label">Salida</label>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-3">
-                      <input type="checkbox" class="form-check-input" id="domingocheck" checked>
-                      <label class="form-check-label" for="domingo">Domingo</label>
+                      <input type="checkbox" class="form-check-input" id="domingocheckupdate" checked>
+                      <label class="form-check-label color7" for="domingo">Domingo</label>
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes" name="lunes" placeholder="" />
+                        <input type="time" class="form-control" id="domingo2" name="domingo2" placeholder="" />
                         <label class="label">Entrada</label>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group form-material floating" data-plugin="formMaterial">
-                        <input type="time" class="form-control" id="lunes1" name="lunes1" placeholder="" />
+                        <input type="time" class="form-control" id="domingo3" name="domingo3" placeholder="" />
                         <label class="label">Salida</label>
                       </div>
                     </div>
@@ -435,119 +379,68 @@
               </div>
             </div>
           </div>
-      </div>
+      </div> 
+      <div id="formupdatehorariosappend"></div>     
       <div class="modal-footer">
         <button type="button" data-dismiss="modal" class="btn btn-warning">Cancel</button>
         <button type="submit" class="btn btn-success">Guardar</button>
         </form>
       </div>
+
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="<?=base_url('resources/js/jquery.js');?>"></script>
+	<script src="<?=base_url('resources/js/popper.js');?>"></script>
+	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
+	
     </div>
   </div>
 </div>
 
 
-<script>
-  var rangeTimes = [];
-  $(".range-slider").slider({
-    range: true,
-    min: 0,
-    max: 1440,
-    values: [540, 1080],
-    step: 30,
-    slide: slideTime,
-  });
 
-  function slideTime(event, ui) {
-    if (event && event.target) {
-      var $rangeslider = $(event.target);
-      var $rangeday = $rangeslider.closest(".range-day");
-      var rangeday_d = parseInt($rangeday.data('day'));
-      var $rangecheck = $rangeday.find(":checkbox");
-      var $rangetime = $rangeslider.next(".range-time");
-    }
-
-    if ($rangecheck.is(':checked')) {
-      $rangeday.removeClass('range-day-disabled');
-      $rangeslider.slider('enable');
-
-      if (ui !== undefined) {
-        var val0 = ui.values[0],
-          val1 = ui.values[1];
-      } else {
-        var val0 = $rangeslider.slider('values', 0),
-          val1 = $rangeslider.slider('values', 1);
-      }
-
-      var minutes0 = parseInt(val0 % 60, 10),
-        hours0 = parseInt(val0 / 60 % 24, 10),
-        minutes1 = parseInt(val1 % 60, 10),
-        hours1 = parseInt(val1 / 60 % 24, 10);
-      if (hours1 == 0) hours1 = 24;
-
-      rangeTimes[rangeday_d] = [getTime(hours0, minutes0), getTime(hours1, minutes1)];
-
-      $rangetime.text(rangeTimes[rangeday_d][0] + ' - ' + rangeTimes[rangeday_d][1]);
-
-    } else {
-
-      $rangeday.addClass('range-day-disabled');
-      $rangeslider.slider('disable');
-
-      rangeTimes[rangeday_d] = [];
-
-      $rangetime.text('00:00-00:00');
-
-    }
-  }
+<div class="modal fade" tabindex="-1" role="dialog" id="modalstatus">
+     <div class="modal-dialog modal-sm" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title" id="titleModal">Cambiar status</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>            
+             <div class="col-lg-12">
+             <form autocomplete="off" id="formstatus">            
+         <!-- End Panel Static Labels -->                                                       
+                     <div class="panel-body container-fluid border">  
+						                                                  
+                             <div class="col-lg-12">							 
+									 <div id="nombreSchedule"> </div>
+								 <div class="row">
+									 
+								<div class="col-lg-6">
+								<button type="button"  data-dismiss="modal" class="btn btn-warning">No</button>
+								</div>
+								<div class="col-lg-6">
+								<button type="submit" class="btn btn-success">Si</button>  
+								</div>                                      						
+							 </div>   
+							 </div>                                                                                                    
+                        </div>                                   
+			</div>     
+			<div class="modal-footer">
+					
+			</form>
+			</div>
+		</div>
+	</div>
+</div> 
 
 
-  function getTime(hours, minutes) {
-    var time = null;
-    minutes = minutes + "";
-    if (minutes.length == 1) {
-      minutes = "0" + minutes;
-    }
-    return hours + ":" + minutes;
-  }
-
-  $('.range-checkbox').on('change', function () {
-    var $rangecheck = $(this);
-    var $rangeslider = $rangecheck.closest('.range-day').find('.range-slider');
-    slideTime({
-      target: $rangeslider
-    });
-  });
-
-  $("#Submit").on('click');
-
-  slideTime({
-    target: $('#range-slider-1')
-  });
-  slideTime({
-    target: $('#range-slider-2')
-  });
-  slideTime({
-    target: $('#range-slider-3')
-  });
-  slideTime({
-    target: $('#range-slider-4')
-  });
-  slideTime({
-    target: $('#range-slider-5')
-  });
-  slideTime({
-    target: $('#range-slider-6')
-  });
-  slideTime({
-    target: $('#range-slider-7')
-  });
-
-
-  $(function () {
-
-    var _action = "new"; //new,uptdate,read,delete
-    let _table = $('.table').DataTable({
-      "ajax": {
+<script type="text/javascript">
+//$('.clockpicker').clockpicker();
+$(function() {
+			var _action = "new";//new,uptdate,read,delete
+			let _table =$('.table').DataTable({
+				"ajax" : {
         "url": "http://localhost/MSC_services/index.php/schedule/Api/scheduleV",
         "dataSrc": "data"
       },
@@ -588,8 +481,12 @@
           "defaultContent": ""
         },
         {
+          "data": "statusSchedule",
+          "defaultContent": ""
+        },
+        {
           "data": null,
-          "defaultContent": "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action' data-action='delete' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"
+          "defaultContent": "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action'data-action='update'title='Actualizar'><i class='icon wb-wrench white'aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action2' data-action='status' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"
         }
       ],
       "columnDefs": [{
@@ -617,24 +514,16 @@
       });
     });
 
-    $(document).on('submit', '#formhorarios', function (event) {
-      event.preventDefault();
-      var range1 = $("#range-time-1").html();
-      var range2 = $("#range-time-2").html();
-      var range3 = $("#range-time-3").html();
-      var range4 = $("#range-time-4").html();
-      var range5 = $("#range-time-5").html();
-      var range6 = $("#range-time-6").html();
-      var range7 = $("#range-time-7").html();
-
-      $('#formschedule').append('<input type="text"name="lunes"id="lunes"value="' + range1 +
-        '"/><input type="text"name="martes"id="martes"value="' + range2 +
-        '"/><input type="text"name="miercoles"id="miercoles"value="' + range3 +
-        '"/><input type="text"name="jueves"id="jueves"value="' + range4 +
-        '"/><input type="text"name="viernes"id="viernes"value="' + range5 +
-        '"/><input type="text"name="sabado"id="sabado"value="' + range6 +
-        '"/><input type="text"name="domingo"id="domingo"value="' + range7 + '"/>');
-
+    $(document).on('submit','#formhorarios', function (event) {
+      event.preventDefault();     
+      var lunes = $("#lunes0").val()+'-'+$("#lunes1").val();
+      var martes = $("#martes0").val()+'-'+$("#martes1").val();
+      var miercoles = $("#miercoles0").val()+'-'+$("#miercoles1").val();
+      var jueves = $("#jueves0").val()+'-'+$("#jueves").val();
+      var viernes = $("#viernes0").val()+'-'+$("#viernes1").val();
+      var sabado = $("#sabado0").val()+'-'+$("#sabado1").val();
+      var domingo = $("#domingo0").val()+'-'+$("#domingo1").val(); 
+      $('#formhorariosappend').append('<div id="formhorariosappend2"><input type="hidden"name="lunes"id="lunes"value="'+lunes+'"/><input type="hidden"name="martes"id="martes"value="'+martes+'"/><input type="hidden"name="miercoles"id="miercoles"value="'+miercoles+'"/><input type="hidden"name="jueves"id="jueves"value="'+jueves+'"/><input type="hidden"name="viernes"id="viernes"value="'+viernes+'"/><input type="hidden"name="sabado"id="sabado"value="'+sabado+'"/><input type="hidden"name="domingo"id="domingo"value="'+domingo+'"/></div>');      
       limpiarCampos('formhorarios');
       var permiteEnviar = false;
       var uri = "http://localhost/MSC_services/index.php/schedule/api/schedule";
@@ -667,8 +556,7 @@
           "method": method,
           "data": $('#formhorarios').serialize(),
           "success": function (response) {
-            if (response.status == "success") {
-
+            if (response.status == "success"){
               var mensaje = response.message;
               $(document).find('#divtoast').append(
                 '<div class="toast"style="display:none"id="toastersuccess"name="toastersuccess"data-message="' +
@@ -695,9 +583,78 @@
             console.info(xh);
           }
         });
-
       }
+    });
 
+    $(document).on('submit','#formupdatehorarios', function (event) {
+      event.preventDefault();       
+      var lunes = $("#lunes2").val()+'-'+$("#lunes3").val();
+      var martes = $("#martes2").val()+'-'+$("#martes3").val();
+      var miercoles = $("#miercoles2").val()+'-'+$("#miercoles3").val();
+      var jueves = $("#jueves2").val()+'-'+$("#jueves3").val();
+      var viernes = $("#viernes2").val()+'-'+$("#viernes3").val();
+      var sabado = $("#sabado2").val()+'-'+$("#sabado3").val();
+      var domingo = $("#domingo2").val()+'-'+$("#domingo3").val();       
+      $('#formupdatehorarios').append('<input type="hidden"name="uplunes"id="uplunes"value="'+lunes+'"/><input type="hidden"name="upmartes"id="upmartes"value="'+martes+'"/><input type="hidden"name="upmiercoles"id="upmiercoles"value="'+miercoles+'"/><input type="hidden"name="upjueves"id="upjueves"value="'+jueves+'"/><input type="hidden"name="upviernes"id="upviernes"value="'+viernes+'"/><input type="hidden"name="upsabado"id="upsabado"value="'+sabado+'"/><input type="hidden"name="updomingo"id="updomingo"value="'+domingo+'"/>');
+      limpiarCampos('formupdatehorarios');
+      var permiteEnviar = false;
+      var uri = "http://localhost/MSC_services/index.php/schedule/api/schedule";
+      var method = "get";
+      switch (_action) {
+        case 'new':
+          permiteEnviar = true;
+          var uri = "http://localhost/MSC_services/index.php/schedule/api/schedule";
+          method = "post";
+          break;
+        case 'update':
+          permiteEnviar = true;
+          var uri = "http://localhost/MSC_services/index.php/schedule/api/schedule/id/" + $(document).find(
+            '#idSchedule').val();
+          method = "put";
+          break;
+        case 'consulta':
+          permiteEnviar = false;
+          var uri = "http://localhost/MSC_services/index.php/schedule/api/schedule/id/" + $(document).find(
+            '#idSchedule').val();
+          method = "get";
+          break;
+        case 'default':
+          permiteEnviar = false;
+          break;
+      }
+      if (permiteEnviar) {
+        $.ajax({
+          "url": uri,
+          "method": method,
+          "data": $('#formupdatehorarios').serialize(),
+          "success": function (response) {
+            if (response.status == "success"){
+              var mensaje = response.message;
+              $(document).find('#divtoast').append(
+                '<div class="toast"style="display:none"id="toastersuccess"name="toastersuccess"data-message="' +
+                mensaje +
+                '"aria-live="polite"data-plugin="toastr"data-container-id="toast-top-right"data-position-class="toast-top-right"data-icon-class="toast-just-text toast-success toast-shadow"role="alert"><div class="toast toast-just-text toast-shadow toast-success"><button type="button"class="toast-close-button"aria-label="Close"><span aria-hidden="true">×</span></button><div class="toast-message"></div></div></div>'
+                );
+
+              $('#toastersuccess').click();
+              _table.ajax.reload();
+              $('#modalupdatehorarios').modal('hide');
+              $(".modal-backdrop").remove();
+            } else if (response.status == "error") {
+              $.each(response.validations, function (key, message) {
+                //console.info(key+":"+message);
+                $(document).find('#formupdatehorarios').find('#' + key).addClass('is-invalid');
+                $(document).find('#formupdatehorarios').find('#' + key).closest('.form-group').append(
+                  '<div class="invalid-feedback">' + message + '</div>');
+              });
+            } else {
+            }
+          },
+          "error": function (xh, err, thro) {
+            console.info(xh);
+          }
+        });
+      }
     });
 
     $('.table tbody').on('click', '.btn-custom-action', function () {
@@ -705,26 +662,23 @@
       var data = _table.row(row).data();
       _action = $(this).attr('data-action');
       $.ajax({
-        "url": "http://localhost/MSC_services/index.php/schedule/api/schedule/id/" + data.idschedule,
+        "url": "http://localhost/MSC_services/index.php/schedule/api/schedule/id/"+data.idSchedule,
         "method": "get",
         "success": function (response) {
           if (response.status == "success") {
             $('#modalupdatehorarios').modal('show');
             $.each(response.data, function (key, value) {
-              $('#formscheduleupdate').find('#' + key).val(value);
-              $('#' + key).append('<option value="' + value + '">' + value + '</option>');
-            });
-            $('#formupdatehorarios').append('<input type="hidden" id="idschedule" value="' + data
-              .idschedule + '"/>');
-
-
-
+              $('#formupdatehorarios').find('#' + key).val(value);
+              $('#'+key).append('<option value="'+value+'">'+value+'</option>');
+            });            
+            $('#empleadodivtitle').append('<h3 class="panel-title"id="removethistitle">Empleado: '+data.namePerson+'</h3>');         
+            $('#formupdatehorarios').append('<input type="hidden"id="idSchedule"name="idSchedule"value="'+data.idSchedule+'"/>');
+            $('#formupdatehorarios').append('<input type="hidden"id="Empleadoupdate"name="Empleadoupdate"value="'+data.fkEmployee+'"/>');
           }
         },
         "error": function (xh, err, thro) {
           console.info(xh);
         }
-
       });
       switch (_action) {
         case 'update':
@@ -732,14 +686,7 @@
           $(document).find('#titleSubmit').text('Actualizar');
           $('#formhorarios').find('input').each(function () {
             $(this).removeClass('empty');
-          });
-          /*$(document).find('input,select').on('change',function(){     
-              alert(1);                  
-              $('#formhorarios').each('input,select',function(){
-                  alert(1);
-                  $(this).removeClass('empty');
-              });
-           });*/
+          });          
           break;
 
         case 'delete':
@@ -757,24 +704,109 @@
       }
     });
 
+    $('.table tbody').on('click','.btn-custom-action2',function(){
+				var row = $(this).closest('tr');
+				var data = _table.row(row).data();
+				_action = $(this).attr('data-action');				
+				$.ajax({
+					"url": "http://localhost/MSC_services/index.php/schedule/api/schedule/id/"+data.idSchedule,
+					"method":"get",
+					"success":function(response){
+						if(response.status=="success"){
+							$('#modalstatus').modal('show');							
+							$('#formstatus').append('<input type="hidden" id="idSchedule" name="idSchedule" value="'+data.idSchedule+'"/>');
+							if(data.statusSchedule == 'Active'){
+								$(document).find('#nombreSchedule').append('<h4 id="ns">Esta seguro que desea "desactivar" el horario de : ('+data.namePerson+' '+data.lastnamePerson+')</h4>');					
+								$('#formstatus').append('<input type="hidden" id="statusSchedule" name="statusSchedule" value="Inactive"/>');								
+							}else{
+								$(document).find('#nombreSchedule').append('<h4 id="ns">Esta seguro que desea "activar" el horario de : ('+data.namePerson+' '+data.lastnamePerson+')</h4>');					
+								$('#formstatus').append('<input type="hidden" id="statusSchedule" name="statusSchedule" value="Active"/>');
+							}
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+					
+				});
+				$(document).on('submit','#formstatus',function(event){
+					event.preventDefault();
+					$.ajax({
+            "url": "http://localhost/MSC_services/index.php/schedule/api/schedulestatus/id/"+$(document).find('#idSchedule').val(),
+					"method":"put",
+					"data" : $('#formstatus').serialize(),
+					"success" : function(response){
+						if (response.status=="success") {
+							_table.ajax.reload();
+							$('#modalstatus').modal('hide');
+                            $(".modal-backdrop").remove();
+						}else if(response.status=="error"){
+							$.each(response.validations,function(key,message){
+								//console.info(key+":"+message);								
+							});
+						}else{
+						}
+					},
+					"error" : function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+				});				
+      });
+      
+      $('#modalstatus').on('hidden.bs.modal',function(){
+				$(document).find('#formstatus').each(function(){						
+				$(document).find('#idSchedule').remove();	
+				$(document).find('#ns').remove();				
+					});
+				});
+
+
+
     $('#modalhorarios').on('hidden.bs.modal', function () {
       $(document).find('#formhorarios').find('input').each(function () {
         $(this).removeClass('is-invalid');
         $(this).closest('.form-group').find('.invalid-feedback').remove();
         $(this).val('');
-        $(document).find('#id').remove();
-        _action = "new";
-        $(document).find('#titleModal').text('Registrar Persona');
+        //$(document).find('#id').remove();
+        $(document).find('#formhorariosappend').remove();
+        _action = "new";        
+        
+        $(document).find('#titleModal').text('Registrar Horario');
         $(document).find('#titleSubmit').text('Guardar');
         $(document).find('#formhorarios').find('input,select').each(function () {
           //$(document).find('#formClientes').find('input','select','textArea').each(function(){
           $(this).prop('disabled', '');
-
+          $(this).prop('checked', true);          
         });
+        $("#Empleado").val($("#Empleado option:first").val());
       });
-
     });
+
+    $('#modalupdatehorarios').on('hidden.bs.modal', function () {
+      $(document).find('#formupdatehorarios').find('input').each(function () {
+        $(this).removeClass('is-invalid');
+        $(this).closest('.form-group').find('.invalid-feedback').remove();
+        $(this).val('');
+        $(document).find('#idSchedule').remove();        
+        $(document).find('#Empleadoupdate').remove();        
+        _action = "new";
+        $(document).find('#removethistitle').remove();
+        $(document).find('#titleModal').text('Registrar Horario');
+        $(document).find('#titleSubmit').text('Guardar');
+        $(document).find('#formupdatehorarios').find("input[type='checkbox']").each(function () {
+          //$(document).find('#formClientes').find('input','select','textArea').each(function(){
+          $(this).prop('disabled', '');          
+          $(this).prop('checked', true);           
+        });        
+      });
+    });
+
+
   });
+  
+  
+
 
   function limpiarCampos(idForm) {
     $(document).find('#' + idForm).find('input,select').each(function () {
@@ -784,62 +816,232 @@
 
   }
 
-  /*
-  $(document).on('submit','#formhorarios',function(){
-    event.preventDefault();
-    var range1 =  $("#range-time-1").html();  
-    var range2 =  $("#range-time-2").html();  
-    var range3 =  $("#range-time-3").html();  
-    var range4 =  $("#range-time-4").html();  
-    var range5 =  $("#range-time-5").html();  
-    var range6 =  $("#range-time-6").html();  
-    var range7 =  $("#range-time-7").html();  
-      
-    $('#formschedule').append('<input type="text"name="lunes"id="lunes"value="'+range1+'"/><input type="text"name="martes"id="martes"value="'+range2+'"/><input type="text"name="miercoles"id="miercoles"value="'+range3+'"/><input type="text"name="jueves"id="jueves"value="'+range4+'"/><input type="text"name="viernes"id="viernes"value="'+range5+'"/><input type="text"name="sabado"id="sabado"value="'+range6+'"/><input type="text"name="domingo"id="domingo"value="'+range7+'"/>');
+  
 
-      
-      var $1start = range1.split("-")[0];
-      var $1end = range1.split("-")[1];
-      $('#formschedule').append('<input type="text"name="day-1-start"id="day-1-start"value="'+$1start+'"/><input type="text"name="day-1-end" id="day-1-end"value="'+$1end+'"/>');
+   
+$(document).ready(function(){          
+        $('#lunescheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#lunes0,#lunes1').each(function () {
+            $(this).prop('readonly', '');
+            
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#lunes0,#lunes1').each(function () {
+            $(this).prop('readonly', 'readonly');
+            $(this).val("00:00:00");                      
+           
+          });        
+            }
+        });
 
-      var $2start = range2.split("-")[0];
-      var $2end = range2.split("-")[1];
-      $('#formschedule').append('<input type="text"name="day-2-start"id="day-2-start"value="'+$2start+'"/><input type="text"name="day-2-end" id="day-2-end"value="'+$2end+'"/>');
-
-      var $3start = range3.split("-")[0];
-      var $3end = range3.split("-")[1];
-
-      $('#formschedule').append('<input type="text"name="day-3-start"id="day-3-start"value="'+$3start+'"/><input type="text" name="day-3-end"id="day-3-end"value="'+$3end+'"/>');
-
-      var $4start = range4.split("-")[0];
-      var $4end = range4.split("-")[1];
-
-      $('#formschedule').append('<input type="text"name="day-4-start"id="day-4-start"value="'+$4start+'"/><input type="text" name="day-4-end"id="day-4-end"value="'+$4end+'"/>');
-
-      var $5start = range5.split("-")[0];
-      var $5end = range5.split("-")[1];
-
-      $('#formschedule').append('<input type="text"name="day-5-start"id="day-5-start"value="'+$5start+'"/><input type="text"name="day-5-end" id="day-5-end"value="'+$5end+'"/>');
-
-      var $6start = range6.split("-")[0];
-      var $6end = range6.split("-")[1];
-
-      $('#formschedule').append('<input type="text"name="day-6-start"id="day-6-start"value="'+$6start+'"/><input type="text"name="day-6-end" id="day-6-end"value="'+$6end+'"/>');
-
-      var $7start = range7.split("-")[0];
-      var $7end = range7.split("-")[1];
-
-      $('#formschedule').append('<input type="text"name="day-7-start"id="day-7-start"value="'+$7start+'"/><input type="text"name="day-7-end" id="day-7-end"value="'+$7end+'"/>');
-      
-
-
-      //$('#formschedule').empty();
+        $('#martescheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#martes0,#martes1').each(function () {
+            $(this).prop('readonly', '');
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#martes0,#martes1').each(function () {
+            $(this).prop('readonly', 'readonly');
+            $(this).val("00:00:00");              
+            
           
-  });
-      */
+          });        
+            }
+        });
 
+        $('#miercolescheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#miercoles0,#miercoles1').each(function () {
+            $(this).prop('readonly', '');
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#miercoles0,#miercoles1').each(function () {
+            $(this).prop('readonly', 'readonly');
+            $(this).val("00:00:00");      
+            
+            
+          });        
+            }
+        });
+
+        $('#juevescheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#jueves0,#jueves1').each(function () {
+            $(this).prop('readonly', '');
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#jueves0,#jueves1').each(function () {
+            $(this).prop('readonly', 'readonly');
+            $(this).val("00:00:00");                
+            
+       
+          });        
+            }
+        });
+
+        $('#viernescheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#viernes0,#viernes1').each(function () {
+            $(this).prop('readonly', '');
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#viernes0,#viernes1').each(function () {
+            $(this).prop('readonly', 'readonly');
+            $(this).val("00:00:00");                      
+            
+          });        
+            }
+        });
+
+        $('#sabadocheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#sabado0,#sabado1').each(function () {
+            $(this).prop('readonly', '');
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#sabado0,#sabado1').each(function () {
+            $(this).prop('readonly', 'readonly');   
+            $(this).val("00:00:00");
+                          
+          });        
+            }
+        });
+
+        $('#domingocheck').click(function(){
+            if($(this).is(":checked")){              
+            $(document).find('#formhorarios').find('#domingo0,#domingo1').each(function () {
+            $(this).prop('readonly', '');
+          });            
+            }
+            else if ($(this).is(":not(:checked)")){
+              $(document).find('#formhorarios').find('#domingo0,#domingo1').each(function () {
+            $(this).prop('readonly', 'readonly'); 
+            $(this).val("00:00:00");
+                                 
+          });        
+            }
+        });
+    });
+
+   
+    $(document).ready(function(){          
+          $('#lunescheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#lunes2,#lunes3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#lunes2,#lunes3').each(function () {
+              $(this).prop('readonly', 'readonly');
+              $(this).val("00:00:00");
+             
+            });        
+              }
+          });
+  
+          $('#martescheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#martes2,#martes3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#martes2,#martes3').each(function () {
+              $(this).prop('readonly', 'readonly');
+              $(this).val("00:00:00");
+              
+            
+            });        
+              }
+          });
+  
+          $('#miercolescheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#miercoles2,#miercoles3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#miercoles2,#miercoles3').each(function () {
+              $(this).prop('readonly', 'readonly');
+              $(this).val("00:00:00");
+              
+              
+            });        
+              }
+          });
+  
+          $('#juevescheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#jueves2,#jueves3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#jueves2,#jueves3').each(function () {
+              $(this).prop('readonly', 'readonly');
+              $(this).val("00:00:00");
+              
+         
+            });        
+              }
+          });
+  
+          $('#viernescheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#viernes2,#viernes3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#viernes2,#viernes3').each(function () {
+              $(this).prop('readonly', 'readonly');
+              $(this).val("00:00:00");                                        
+              
+            });        
+              }
+          });
+  
+          $('#sabadocheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#sabado2,#sabado3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#sabado2,#sabado3').each(function () {
+              $(this).prop('readonly', 'readonly');                        
+              $(this).val("00:00:00");              
+            });        
+              }
+          });
+  
+          $('#domingocheckupdate').click(function(){
+              if($(this).is(":checked")){              
+              $(document).find('#formupdatehorarios').find('#domingo2,#domingo3').each(function () {
+              $(this).prop('readonly', '');
+            });            
+              }
+              else if ($(this).is(":not(:checked)")){
+                $(document).find('#formupdatehorarios').find('#domingo2,#domingo3').each(function () {
+              $(this).prop('readonly', 'readonly');  
+              $(this).val("00:00:00");
+                                 
+            });        
+              }
+          });
+      });
+  
   var choice_combo = document.getElementById('Empleado');
   choice_combo.onchange = function () {
     document.getElementById("rangos").style.display = 'block';
-  }
+  }  
 </script>

@@ -339,7 +339,7 @@
 				$(document).on('submit','#formstatus',function(event){
 					event.preventDefault();
 					$.ajax({
-					"url":"http://localhost/MSC_services/index.php/speciality/Api/specialitystatus/id/"+data.idSpecialty,
+					"url":"http://localhost/MSC_services/index.php/speciality/Api/specialitystatus/id/"+$(document).find('#idSpecialty').val(),
 					"method":"put",
 					"data" : $('#formstatus').serialize(),
 					"success" : function(response){

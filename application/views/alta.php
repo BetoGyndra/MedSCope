@@ -26,13 +26,12 @@
                                  <tr>
                                      <th>#</th>
                                      <th>Nombre</th>
-                                     <th>Apellido</th>
-                                     <th>Genero</th>                                     
+                                     <th>Apellido</th>                                                                         
                                      <th>Correo</th>          
                                      <th>Telefono</th>
-                                     <th>Tipo Usuario</th>
+                                     <th>Tipo Usuario</th>                                     
                                      <th>Alta</th>
-                                     <th>Modificacion</th>
+                                     <th>Status</th>                             
                                      <th>Info</th>
                                      <th>Options</th>
                                  </tr>
@@ -289,20 +288,89 @@
         <button type="submit" class="btn btn-success">Save</button>         
         </form>
      </div>
-     
 
+ </div>
+ </div>
+ </div>
+
+ <div class="modal fade" tabindex="-1" role="dialog" id="modalinfo">
+     <div class="modal-dialog modal-md" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title" id="titleModal">Informacion usuario</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>            
+             <div class="col-lg-12">             
+                                                           
+                         <!-- Panel Static Labels -->                         
+                         <div class="panel panel-info">
+                             <div class="panel-heading">
+                                 <h3 class="panel-title">Datos Completos</h3>
+                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                             </div>
+                             <div class="panel-body container-fluid border" id="datos">                                                          
+
+                             </div>
+                         </div>    
+                                                                               
+        
+     </div>     
+     <div class="modal-footer">
+        <button type="button"  data-dismiss="modal" class="btn btn-warning">Cancel</button>
+               
+        
+     </div>
+     </div>
+ </div>
+ </div>
+       
+
+
+
+
+ <div class="modal fade" tabindex="-1" role="dialog" id="modalstatus">
+     <div class="modal-dialog modal-sm" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h4 class="modal-title" id="titleModal">Cambiar status</h4>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>            
+             <div class="col-lg-12">
+             <form autocomplete="off" id="formstatus">            
+         <!-- End Panel Static Labels -->                                                       
+                     <div class="panel-body container-fluid border">  
+						                                                  
+                             <div class="col-lg-12">							 
+									 <div id="nombrePerson"> </div>
+								 <div class="row">
+									 
+								<div class="col-lg-6">
+								<button type="button"  data-dismiss="modal" class="btn btn-warning">No</button>
+								</div>
+								<div class="col-lg-6">
+								<button type="submit" class="btn btn-success">Si</button>  
+								</div>                                      						
+							 </div>   
+							 </div>                                                                                                    
+                        </div>                                   
+			</div>     
+			<div class="modal-footer">
+					
+			</form>
+			</div>
+		</div>
+	</div>
+</div> 
+
+       
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?=base_url('resources/js/jquery.js');?>"></script>
 	<script src="<?=base_url('resources/js/popper.js');?>"></script>
 	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
-	
-
- </div>
- </div>
- </div>
-
-       
-	
 
  <script type="text/javascript">
 		$(function() {
@@ -315,37 +383,21 @@
 				"columns" : [
 					{"data" : "idPerson", "defaultContent" : ""},
                     {"data" : "namePerson", "defaultContent" : ""},
-                    {"data" : "lastnamePerson", "defaultContent" : ""},
-                    {"data" : "genre", "defaultContent" : ""},                    
+                    {"data" : "lastnamePerson", "defaultContent" : ""},                                      
                     {"data" : "emailUser", "defaultContent" : ""},
                     {"data" : "phonePerson", "defaultContent" : ""},
-                    {"data" : "typeUser", "defaultContent" : ""},
+                    {"data" : "typeUser", "defaultContent" : ""},                      
                     {"data" : "creationDatePerson", "defaultContent" : ""},
-                    {"data" : "lastModPerson", "defaultContent" : ""},
-                    {"data" : null, "defaultContent" : "<button class='btn btn-info btn-sm mx-2 btn-custom-action' data-action='consulta' title='Mas datos'><i class='icon  wb-order white' aria-hidden='true'></button>"},
-					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action' data-action='delete' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
+                    {"data" : "statusPerson", "defaultContent" : ""},
+                    {"data" : null, "defaultContent" : "<button class='btn btn-info btn-sm mx-2 btn-custom-action4' data-action='consulta' title='Mas datos'><i class='icon  wb-order white' aria-hidden='true'></button>"},
+					{"data" : null, "defaultContent" : "<div class='btn-group'><button class='btn btn-primary btn-sm mx-2 btn-custom-action' data-action='update'  title='Actualizar'><i class='icon wb-wrench white' aria-hidden='true'></button><button class='btn btn-warning btn-sm btn-custom-action2' data-action='status' title='Cambiar Status'><i class='icon wb-user-circle white' aria-hidden='true' ></button></div>"}
 				], 
 				"columnDefs" : [
 					{"orderable" : false, "width" : "10%", "targets": -1}
 				]
 			});
 
-            $(document).find('#fkUsers_cli').each(function(){
-				$.ajax({
-					"url":"http://localhost/tickets2_services/index.php/usuarios_cli/api/usersCli",
-					"method":"get",
-					"success": function(response){
-						if (response.status=="success"){
-							$.each(response.data,function(key,value){
-								$('#fkUsers_cli').append('<option value="'+value.users_cliId+'">'+value.users_cliExt+'</option>');
-							});
-						}
-					},
-					"error":function(xh,err,thro){
-						console.info(xh);
-					}
-				});
-			});
+           
 
 			$(document).on('submit','#formAlta',function(event){
 				event.preventDefault();
@@ -361,7 +413,7 @@
 						break;
 					case 'update':
 						permiteEnviar = true;
-						var uri="http://localhost/MSC_services/index.php/Alta/api/altaV/id/"+$(document).find('#idPerson').val();
+						var uri="http://localhost/MSC_services/index.php/Alta/Api2/alta/id/"+$(document).find('#idPerson').val()+"/id1/"+$(document).find('#idUser').val()+"/id2/"+$(document).find('#idAddress').val()+"/id3/"+$(document).find('#idEmployee').val();
 						method="put";
                         break;
                     case 'consulta':
@@ -410,7 +462,7 @@
 				var data = _table.row(row).data();
 				_action = $(this).attr('data-action');				
 				$.ajax({
-					"url":"http://localhost/MSC_services/index.php/Alta/api/alta/id/"+data.idPerson,
+					"url":"http://localhost/MSC_services/index.php/Alta/api/altaV/id/"+data.idPerson,
 					"method":"get",
 					"success":function(response){
 						if(response.status=="success"){
@@ -419,7 +471,10 @@
 								$('#formAlta').find('#'+key).val(value);                                 
                                 $('#'+key).append('<option value="'+value+'">'+value+'</option>');                              
 							});
-							$('#formAlta').append('<input type="hidden" id="idPerson" value="'+data.idPerson+'"/>');
+							$('#formAlta').append('<input type="text" id="idPerson" value="'+data.idPerson+'"/>');
+                            $('#formAlta').append('<input type="text" id="idUser" value="'+data.idUser+'"/>');
+                            $('#formAlta').append('<input type="text" id="idAddress" value="'+data.idAddress+'"/>');
+                            $('#formAlta').append('<input type="text" id="idEmployee" value="'+data.idEmployee+'"/>');
                                                        
 						}
 					},
@@ -434,14 +489,7 @@
 					$(document).find('#titleSubmit').text('Actualizar');  
                     $('#formAlta').find('input').each(function(){
                        $(this).removeClass('empty');
-                    });
-                    /*$(document).find('input,select').on('change',function(){     
-                        alert(1);                  
-                        $('#formAlta').each('input,select',function(){
-                            alert(1);
-                            $(this).removeClass('empty');
-                        });
-                     });*/			                
+                    });                    		                
 						break;
 
 					case 'delete':
@@ -459,12 +507,45 @@
 					}
 			});
 
+            $('.table tbody').on('click','.btn-custom-action4',function(){
+				var row = $(this).closest('tr');
+				var data = _table.row(row).data();
+				_action = $(this).attr('data-action');				
+				$.ajax({
+					"url":"http://localhost/MSC_services/index.php/Alta/api/altaV/id/"+data.idPerson,
+					"method":"get",
+					"success":function(response){
+						if(response.status=="success"){
+							$('#modalinfo').modal('show');
+                            $(document).find('#datos').append('<div id="datosappend"><br><h5>Datos Personales</h5><br><label>Nombre: '+data.namePerson+' '+data.lastnamePerson+'</label><br><label>Genero: '+data.genre+'</label><br></label><label>Fecha de Nacimiento: '+data.birtdate+'</label><br><label>Curp: '+data.CURP+'</label><br><label>Estado Civil: '+data.civilStatus+'</label><br><label>Telefono: '+data.phonePerson+'</label><h5>Datos Usuario</h5><br><label>Correo: '+data.emailUser+'</label><br><label>Tipo Usuario: '+data.typeUser+'</label><br><label>Status: '+data.statusPerson+'</label><h5>Dirección</h5><br><label>Calle: '+data.street+'</label><br><label>Numero Interior: '+data.numberInt+'</label><br><label>Numero Exterior: '+data.numberExt+'</label><br><label>Colonia: '+data.neighborhood+'</label><br><label>Codigo Postal: '+data.postalCode+'</label><br><label>Estado: '+data.state+'</label><br><label>Municipio: '+data.townShip+'</label><h5>Datos Empleado</h5><br><label>RFC: '+data.RFC+'</label><br><label>Tipo De Contrato: '+data.tipeContract+'</label><br><label>Numero De Seguro: '+data.noSecure+'</label><br><label>Fecha De Alta: '+data.creationDatePerson+'</label><br><label>Ultima Modificación: '+data.lastModPerson+'</label></div>');						
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+					
+				});
+				
+			});
+
+            $('#modalinfo').on('hidden.bs.modal',function(){
+				$(document).find('#datos').each(function(){				
+				$(document).find('#datosappend').remove();				
+					});
+				});
+
+			
+
+
 			$('#modalAlta').on('hidden.bs.modal',function(){
 				$(document).find('#formAlta').find('input').each(function(){
 				$(this).removeClass('is-invalid');
 				$(this).closest('.form-group').find('.invalid-feedback').remove();
 				$(this).val('');
-				$(document).find('#id').remove();
+				$(document).find('#idPerson').remove();
+                $(document).find('#idUser').remove();
+                $(document).find('#idAddress').remove();
+                $(document).find('#idEmployee').remove();
 				_action = "new";
 				$(document).find('#titleModal').text('Registrar Persona');
 				$(document).find('#titleSubmit').text('Guardar');
@@ -476,6 +557,76 @@
 				});
 
 			});
+
+
+
+            $('.table tbody').on('click','.btn-custom-action2',function(){
+				var row = $(this).closest('tr');
+				var data = _table.row(row).data();
+				_action = $(this).attr('data-action');				
+				$.ajax({
+					"url":"http://localhost/MSC_services/index.php/Alta/api/altaV/id/"+data.idPerson,
+					"method":"get",
+					"success":function(response){
+						if(response.status=="success"){
+							$('#modalstatus').modal('show');							
+							$('#formstatus').append('<input type="hidden" id="idPerson" name="idPerson" value="'+data.idPerson+'"/>');
+							if(data.statusPerson == 'Active'){
+								$(document).find('#nombrePerson').append('<h4 id="ns">Esta seguro que desea "desactivar" a este usuario : '+data.namePerson+' '+data.lastnamePerson+'</h4>');					
+								$('#formstatus').append('<input type="hidden" id="statusPerson" name="statusPerson" value="Inactive"/>');								
+							}else{
+								$(document).find('#nombrePerson').append('<h4 id="ns">Esta seguro que desea "activar" a este usuario : '+data.namePerson+' '+data.lastnamePerson+'</h4>');					
+								$('#formstatus').append('<input type="hidden" id="statusPerson" name="statusPerson" value="Active"/>');
+							}
+						}
+					},
+					"error":function(xh,err,thro){
+						console.info(xh);
+					}
+					
+				});
+
+				$(document).on('submit','#formstatus',function(event){
+					event.preventDefault();
+					$.ajax({
+                        "url":"http://localhost/MSC_services/index.php/Alta/api/altastatus/id/"+$(document).find('#idPerson').val(),
+					"method":"put",
+					"data" : $('#formstatus').serialize(),
+					"success" : function(response){
+						if (response.status=="success") {
+							_table.ajax.reload();
+							$('#modalstatus').modal('hide');
+                            $(".modal-backdrop").remove();
+						}else if(response.status=="error"){
+							$.each(response.validations,function(key,message){
+								//console.info(key+":"+message);								
+							});
+						}else{
+						}
+					},
+					"error" : function(xh,err,thro){
+						console.info(xh);
+					}
+				});
+				});
+								
+     			});
+
+				  
+				  $('#modalstatus').on('hidden.bs.modal',function(){
+				$(document).find('#formstatus').each(function(){	
+				$(document).find('#idPerson').remove();
+				$(document).find('#statusPerson').remove();
+				$(document).find('#ns').remove();				
+					});
+				});
+
+
+
+
+
+
+
 		});		
 
 		function limpiarCampos(idForm){
@@ -492,6 +643,9 @@
             case 'Medic':
                 document.getElementById("medicinput").style.display = 'block';                
                 break;
+            case 'Medico':
+            document.getElementById("medicinput").style.display = 'block';                
+            break;
             case 'Receptionist':
             document.getElementById("medicinput").style.display = 'none';                
             break;

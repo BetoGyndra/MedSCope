@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="<?=base_url('src/classic/global/vendor/flag-icon-css/flag-icon.css');?>">
         <link rel="stylesheet" href="<?=base_url('src/classic/mmenu/assets/examples/css/pages/user.css');?>">
     
+        
+        
+        <link rel="stylesheet" href="<?=base_url('src/classic/global/vendor/clockpicker/clockpicker.css');?>">
+        <link rel="stylesheet" href="<?=base_url('src/classic/global/vendor/bootstrap-datepicker/bootstrap-datepicker.css');?>">
+
+        
+    
     
        
         <link rel="stylesheet" href="<?=base_url('src/classic/global/vendor/toastr/toastr.css');?>">
@@ -45,11 +52,7 @@
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
     
 
-
     
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
     <!--[if lt IE 9]>
     <script src="../../../global/vendor/html5shiv/html5shiv.min.js"></script>
@@ -62,7 +65,6 @@
     
     <!-- Scripts -->
     <script src="<?=base_url('src/classic/global/vendor/breakpoints/breakpoints.js');?>"></script>
-    
     
     <script>
       Breakpoints();
@@ -481,7 +483,7 @@ th {
         <li class="site-menu-item has-sub">
           <a href="javascript:void(0)">
                   <i class="site-menu-icon wb-library" aria-hidden="true"></i>
-                  <span class="site-menu-title">Calendario</span>
+                  <span class="site-menu-title">Horarios y Fechas</span>
                           <span class="site-menu-arrow"></span>
               </a>
           <ul class="site-menu-sub">
@@ -533,12 +535,7 @@ th {
               <a class="animsition-link" href="">
                 <span class="site-menu-title">Reporte</span>
               </a>
-            </li>
-            <li class="site-menu-item">
-              <a class="animsition-link" href="">
-                <span class="site-menu-title">Avisos</span>
-              </a>
-            </li>
+            </li>            
           </ul>
         </li>        
       </ul></div>    <div class="site-gridmenu">
@@ -552,23 +549,11 @@ th {
               </a>
             </li>
             <li>
-              <a href="../apps/mailbox/mailbox.html">
-                <i class="icon wb-envelope"></i>
-                <span>Mailbox</span>
-              </a>
-            </li>
-            <li>
               <a href="../apps/calendar/calendar.html">
                 <i class="icon wb-calendar"></i>
                 <span>Calendar</span>
               </a>
-            </li>            
-            <li>
-              <a href="../apps/media/overview.html">
-                <i class="icon wb-camera"></i>
-                <span>Media</span>
-              </a>
-            </li>
+            </li>                       
             <li>
               <a href="../apps/documents/categories.html">
                 <i class="icon wb-order"></i>

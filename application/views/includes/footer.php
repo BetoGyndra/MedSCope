@@ -12,13 +12,19 @@
 
     <!-- Core  -->
     <script src="<?=base_url('src/classic/global/vendor/babel-external-helpers/babel-external-helpers.js');?>"></script>
-    <!--<script src="<?=base_url('src/classic/global/vendor/jquery/jquery.js');?>"></script>-->
+    <script src="<?=base_url('src/classic/global/vendor/jquery/jquery.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/popper-js/umd/popper.min.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/bootstrap/bootstrap.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/animsition/animsition.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/mousewheel/jquery.mousewheel.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/asscrollbar/jquery-asScrollbar.js');?>"></script>
     <script src="<?=base_url('src/classic/global/vendor/asscrollable/jquery-asScrollable.js');?>"></script>
+    
+    <script src="<?=base_url('src/classic/global/vendor/clockpicker/bootstrap-clockpicker.min.js');?>"></script>
+
+    
+    <script src="<?=base_url('src/classic/global/vendor/bootstrap-datepicker/bootstrap-datepicker.js');?>"></script>
+    
     
     <!-- Plugins -->
     <script src="<?=base_url('src/classic/global/vendor/jquery-mmenu/jquery.mmenu.min.all.js');?>"></script>
@@ -33,7 +39,9 @@
         <script src="<?=base_url('src/classic/global/vendor/toastr/toastr.js');?>"></script>
         
         
-
+        <script src="<?=base_url('src/classic/global/vendor/timepicker/jquery.timepicker.min.js');?>"></script>
+    
+        
         
     <!-- Scripts -->
     <script src="<?=base_url('src/classic/global/js/Component.js');?>"></script>
@@ -67,11 +75,12 @@
 
     
     
-  
+    <script src="<?=base_url('src/classic/global/js/Plugin/bootstrap-datepicker.js');?>"></script>
 
     
-
-
+    
+    <script src="<?=base_url('src/classic/global/js/Plugin/jt-timepicker.js');?>"></script>
+    
     
 
     <!-- Optional JavaScript -->

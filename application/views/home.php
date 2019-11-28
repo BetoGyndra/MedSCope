@@ -70,17 +70,63 @@
         <div class="col-md-6">
           
         <div class="panel panel-danger ">
-                      <div class="panel-heading">
-                          <h3 class="panel-title">Fechas de no atencion</h3>
-                      </div>
-                      <div class="panel-body container-fluid border">
+        <div class="panel-heading">
+            <h3 class="panel-title">Fechas de no atencion</h3>
+        </div>
+        <div class="panel-body container-fluid border">
+        <div class="row">
+					<div class="col-12">
+						<table class="table">
+							<thead>
+								<tr>									
+                  <th>Fecha</th>
+                  <th>Area</th>                                     									 
+                  <th>Motivo</th>
+									 <th>Inicio</th>										 								              
+								</tr>
+							</thead>
+							<tbody>							       
+							</tbody>
+						</table>
+					</div>
+				</div>
+        </div>
+        </div>
+        </div>
+
+        </div>
         </div> 
         </div> 
-              
       </div>
-    </div>
-    </div>
     
-    </div>
-    </div>
     <!-- End Page -->
+    <script src="<?=base_url('resources/js/jquery.js');?>"></script>
+	<script src="<?=base_url('resources/js/popper.js');?>"></script>
+	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
+
+
+    <script type="text/javascript">
+		$(function() {           
+			let _table =$('.table').DataTable({ 
+            "searching": false,                
+            "info": false,        
+            "lengthChange": false,
+            "paging":   false,      
+				"ajax" : {
+					"url" : "http://localhost/MSC_services/index.php/noatencion/api/noatencionV",
+					"dataSrc" : "data"
+                },              
+				"columns" : [				          	
+                    {"data" : "fecha", "defaultContent" : ""},
+				          	{"data" : "nameSpecialty", "defaultContent" : ""},
+                    {"data" : "motivo", "defaultContent" : ""},
+                    {"data" : "desde", "defaultContent" : ""},                                   
+				], 
+				"columnDefs" : [
+					{"orderable" : false, "width" : "10%", "targets": -1}
+				]
+        
+			});
+    });		
+    
+      </script>
