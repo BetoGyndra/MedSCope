@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomeR extends CI_Controller{
+class Preregistro extends CI_Controller{
 
 	public function __construct(){
 		parent::__construct();
@@ -10,7 +10,7 @@ class HomeR extends CI_Controller{
 	}
 	public function index(){
 		$this->load->view('includes/headerR');
-		$this->load->view('homeR');
+		$this->load->view('preregistro');
 		$this->load->view('includes/footerR');
 	}
 }

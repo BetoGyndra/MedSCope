@@ -71,7 +71,7 @@
           
         <div class="panel panel-danger ">
         <div class="panel-heading">
-            <h3 class="panel-title">Fechas de no atencion</h3>
+            <h3 class="panel-title">Fechas de no atencion<i class="wb-calendar float-right"></i></h3>
         </div>
         <div class="panel-body container-fluid border">
         <div class="row">

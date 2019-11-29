@@ -1,167 +1,137 @@
     <!-- Page -->
     <div class="page">
       <div class="page-content">
-        <!-- Panel --> 
-        
+        <!-- Panel -->  
         <div class="col-md-12">
         <div class="row">
-         <div class="col-md-8">                                                   
-          <div class="col-md-6">
+        <div class="col-md-4">
+        
+        <div class="row">
             <!-- Card -->
-            <div class="card card-block p-20 bg-green-600">
+            <div class="card card-block p-20 bg-blue-600">
               <div class="card-watermark darker font-size-80 m-15"><i class="icon wb-clipboard" aria-hidden="true"></i></div>
               <div class="counter counter-md counter-inverse text-left">
                 <div class="counter-number-group">
                   <span class="counter-number">25</span>
-                  <span class="counter-number-related text-capitalize">Appointments</span>
+                  <span class="counter-number-related text-capitalize">Citas</span>
                 </div>
-                <div class="counter-label text-capitalize">in book</div>
+                <div class="counter-label text-capitalize">Pendientes</div>
               </div>
             </div>
             <!-- End Card -->
           </div>
 
-          <div class="col-md-6">
+          <div class="row">
             <!-- Card -->
-            <div class="card card-block p-20 bg-blue-600">
+            <div class="card card-block p-20 bg-yellow-600">
+              <div class="card-watermark darker font-size-80 m-15"><i class="icon  wb-user" aria-hidden="true"></i></div>
+              <div class="counter counter-md counter-inverse text-left">
+                <div class="counter-number-group">
+                  <span class="counter-number">42</span>
+                  <span class="counter-number-related text-capitalize">Medicos</span>
+                </div>
+                <div class="counter-label text-capitalize">Disponibles</div>
+              </div>
+            </div>
+            <!-- End Card -->
+          </div>
+
+          <div class="row">
+            <!-- Card -->
+            <div class="card card-block p-20 bg-green-600">
               <div class="card-watermark darker font-size-80 m-15"><i class="icon wb-users" aria-hidden="true"></i></div>
               <div class="counter counter-md counter-inverse text-left">
                 <div class="counter-number-group">
-                  <span class="counter-number">12</span>
-                  <span class="counter-number-related text-capitalize">Patients</span>
+                  <span class="counter-number">72</span>
+                  <span class="counter-number-related text-capitalize">Pacientes</span>
                 </div>
-                <div class="counter-label text-capitalize">in room</div>
+                <div class="counter-label text-capitalize">Registrados</div>
               </div>
             </div>
             <!-- End Card -->
           </div>
-        </div>
-          
-          <div class="col-md-4 masonry-item">
-           
-            <!-- Panel To Do List -->
-            <div class="panel pb-20" id="todo-list">
-              <div class="panel-heading">
-                <h3 class="panel-title">To Do List</h3>
-                <div class="panel-actions panel-actions-keep">
-                  <div class="dropdown">
-                    <a class="panel-action" id="examplePanelDropdown" data-toggle="dropdown" href="#"
-                      aria-expanded="false" role="button"><i class="icon wb-more-vertical" aria-hidden="true"></i></a>
-                    <div class="dropdown-menu dropdown-menu-bullet dropdown-menu-right" aria-labelledby="examplePanelDropdown"
-                      role="menu">
-                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-flag" aria-hidden="true"></i> Action</a>
-                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-print" aria-hidden="true"></i> Another action</a>
-                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-heart" aria-hidden="true"></i> Something else here</a>
-                      <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-share" aria-hidden="true"></i> Separated link</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <ul class="list-task list-group h-250" data-plugin="scrollable">
-                <div data-role="container">
-                  <div data-role="content">
-                    <li class="list-group-item task-done" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule" checked>
-                        <label for="inputSchedule">
-                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                          <span>Schedule meeting</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputCall" name="inputCheckboxesCall">
-                        <label for="inputCall">
-                          <i class="icon wb-bell" aria-hidden="true"></i>
-                          <span>Call clients for follow-up</span>
-                          <span class="badge badge-danger">Today</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputBook" name="inputCheckboxesBook">
-                        <label for="inputBook">
-                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                          <span>Book flight for holiday</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputForward" name="inputCheckboxesForward">
-                        <label for="inputForward">
-                          <span>Forward important tasks</span>
-                          <span class="badge badge-primary">2 weeks</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputRecieve" name="inputCheckboxesRecieve">
-                        <label for="inputRecieve">
-                          <span>Recieve shipment</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item task-done" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule" checked>
-                        <label for="inputSchedule">
-                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                          <span>Schedule meeting</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputCall" name="inputCheckboxesCall">
-                        <label for="inputCall">
-                          <i class="icon wb-bell" aria-hidden="true"></i>
-                          <span>Call clients for follow-up</span>
-                          <span class="badge badge-danger">Today</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputBook" name="inputCheckboxesBook">
-                        <label for="inputBook">
-                          <i class="icon wb-calendar" aria-hidden="true"></i>
-                          <span>Book flight for holiday</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputForward" name="inputCheckboxesForward">
-                        <label for="inputForward">
-                          <span>Forward important tasks</span>
-                          <span class="badge badge-primary">2 weeks</span>
-                        </label>
-                      </div>
-                    </li>
-                    <li class="list-group-item" data-plugin="tasklist">
-                      <div class="checkbox-custom checkbox-primary">
-                        <input type="checkbox" id="inputRecieve" name="inputCheckboxesRecieve">
-                        <label for="inputRecieve">
-                          <span>Recieve shipment</span>
-                        </label>
-                      </div>
-                    </li>
-                  </div>
-                </div>
-              </ul>
-            </div>
-            <!-- End Panel To Do List -->
 
+          <div class="row">
+            <!-- Card  -->
+            <div class="card card-block p-20 bg-purple-600">
+              <div class="card-watermark lighter font-size-60 m-15"><i class="icon  wb-add-file" aria-hidden="true"></i></div>
+              <div class="counter counter-md counter-inverse text-left">
+                <div class="counter-number-wrap font-size-30">
+                  <span class="counter-number">1025</span>
+                  <span class="counter-number-related text-capitalize">Recetas</span>
+                </div>
+                <div class="counter-label text-capitalize">surtidas</div>
+              </div>
+            </div>
+            <!-- End Card -->           
+        <!-- End Panel -->
+      </div>
+      </div>
+        <div class="col-md-8">
+          
+        <div class="panel panel-success">
+        <div class="panel-heading">
+        
+            <h3 class="panel-title">Asistencia Recepcion <i class=" wb-bell float-right"></i></h3>
+            
         </div>
         
+        <div class="panel-body container-fluid border">
+        <div class="row">
+					<div class="col-12">
+						<table class="table">
+							<thead>
+								<tr>
+                  <th>Cita</th>								
+                  <th>Paciente</th>
+                  <th>Medico</th>
+                  <th>Fecha</th>                                     									                   
+									<th>Hora</th>                 
+								</tr>
+							</thead>
+							<tbody>							       
+							</tbody>
+						</table>
+					</div>
+				</div>
+        </div>
+        </div>
+        </div>
 
-
-    </div>     
-    </div>
-    </div>
-</div>
+        </div>
+        </div> 
+        </div> 
+      </div>
+    
     <!-- End Page -->
+    <script src="<?=base_url('resources/js/jquery.js');?>"></script>
+	<script src="<?=base_url('resources/js/popper.js');?>"></script>
+	<script src="<?=base_url('resources/js/bootstrap.js');?>"></script>
+
+
+    <script type="text/javascript">
+		$(function() {           
+			let _table =$('.table').DataTable({ 
+            "searching": false,                
+            "info": false,        
+            "lengthChange": false,
+            "paging":   false,      
+				"ajax" : {
+					"url" : "http://localhost/MSC_services/index.php/noatencion/api/noatencionV",
+					"dataSrc" : "data"
+                },              
+				"columns" : [				          	
+                    {"data" : "fecha", "defaultContent" : ""},
+				          	{"data" : "nameSpecialty", "defaultContent" : ""},
+                    {"data" : "motivo", "defaultContent" : ""},
+                    {"data" : "desde", "defaultContent" : ""}, 
+                    {"data" : "desde", "defaultContent" : ""},                                 
+				], 
+				"columnDefs" : [
+					{"orderable" : false, "width" : "10%", "targets": -1}
+				]
+        
+			});
+    });		
+    
+      </script>
